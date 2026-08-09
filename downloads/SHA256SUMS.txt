@@ -1,2 +1,2 @@
-bdde6df716d78547af37ec90b72894a10c0f60202b3a625a5de9863380db6467  heuristics-layer-chatgpt-v0.2.0.zip
-cb6a924949d873e3c91f59d2d27f6caf97e94d64d3b4369285608622cd75c819  heuristics-layer-claude-v0.2.0.zip
+8145a8bea438a1c2b0ec50544baead303935aee337064964121436b1aea70e57  heuristics-layer-chatgpt-v0.2.0.zip
+3138fd3f9f3f57622d203c06d7aae6215b3498a01fa9c34405ecad850e0e9390  heuristics-layer-claude-v0.2.0.zip

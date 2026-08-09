@@ -151,4 +151,4 @@ On desktop, consolidate only expert-approved candidates into `JUDGMENT_LIBRARY.m
 
 ## Privacy
 
-Sanitize identifiable company, customer, employee, vendor, system, and contract details unless the user explicitly authorizes preservation. Do not write to Drive or another service without the user's normal authorization and confirmation. The user's interviews and judgment library remain private by default.
+Sanitize identifiable company, customer, employee, vendor, system, and contract details unless the user explicitly authorizes preservation. A downloadable chat attachment is the default file output. Do not write into a local folder, repository, Project file area, Drive, or another destination unless the user explicitly chooses that destination. The user's interviews and judgment library remain private by default.

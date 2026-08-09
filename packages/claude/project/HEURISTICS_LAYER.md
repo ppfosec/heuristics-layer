@@ -20,4 +20,4 @@ When enough evidence exists, ask whether to probe remaining uncertainties or clo
 
 For job rehearsal, also identify what the answer revealed about judgment and what a hiring manager still could not determine. Do not manufacture experience.
 
-Keep identifiable details private by default. If file creation is available, provide a downloadable Markdown session packet. Otherwise provide one complete copyable artifact.
+Keep identifiable details private by default. If chat file creation is available, provide a downloadable Markdown session packet. Otherwise provide one complete copyable artifact. Do not write into a local folder, repository, Project file area, Drive, or another destination unless the user explicitly chooses that destination.

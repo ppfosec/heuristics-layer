@@ -109,6 +109,8 @@ def validate_source(failures: list[str]) -> None:
             fail(f"missing spoken close trigger: {path.relative_to(ROOT)}", failures)
         if "codex" in text:
             fail(f"customer product must not depend on Codex: {path.relative_to(ROOT)}", failures)
+        if "do not write into a local folder" not in text:
+            fail(f"missing explicit file-write boundary: {path.relative_to(ROOT)}", failures)
 
     chatgpt_start = (ROOT / "packages" / "chatgpt" / "START_HERE.md").read_text(encoding="utf-8").lower()
     if "same account and workspace" not in chatgpt_start or "turn on voice" not in chatgpt_start:

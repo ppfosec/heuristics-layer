@@ -23,6 +23,7 @@ The release is not product-complete until a paid ChatGPT user and a paid Claude 
 
 - Open the completed chat on laptop.
 - Create or download the Markdown session packet.
+- Confirm that no file was silently written into a local folder, repository, Project file area, Drive, or other destination.
 - Verify that every candidate points to interview evidence.
 - Verify that every candidate includes a counterexample, uncertainty, and reversal condition.
 - Verify that the model did not approve its own candidates.
@@ -40,4 +41,5 @@ The test fails if:
 - the evaluation is a numerical score without editorial reasoning;
 - ending the interface is required to trigger processing;
 - private details appear in a reusable artifact without review;
+- the model writes outside the chat without the user choosing the exact destination;
 - a candidate becomes approved without the practitioner.

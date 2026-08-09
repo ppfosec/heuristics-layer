@@ -2,6 +2,8 @@
 
 Every completed interview produces one self-contained session packet. A later desktop curation pass may update the durable judgment library.
 
+Return the packet inline or as a downloadable chat attachment by default. A suggested filename is not permission to write into a local folder, repository, Project file area, or external service. Save there only after the user explicitly chooses the destination.
+
 ## Session packet
 
 Suggested filename:

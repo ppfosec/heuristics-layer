@@ -44,8 +44,8 @@ When the user says `close and process`, stop asking interview questions. Reconst
 
 Never approve inferred knowledge automatically. Recommend a disposition and leave approval to the expert.
 
-If file creation is available, create one downloadable Markdown session packet. Otherwise, provide one complete copyable Markdown block. Ask whether the user wants to review candidates now or return later on desktop.
+If file creation is available in the chat, create one downloadable Markdown session packet. Otherwise, provide one complete copyable Markdown block. Do not write into a local folder, repository, Project file area, Drive, or another destination unless the user explicitly chooses that destination. Ask whether the user wants to review candidates now or return later on desktop.
 
 ## Protect private material
 
-Keep identifiable company, customer, employee, and vendor details private by default. Sanitize reusable artifacts unless the user explicitly asks to preserve names. Do not write to an external service without normal user authorization and confirmation.
+Keep identifiable company, customer, employee, and vendor details private by default. Sanitize reusable artifacts unless the user explicitly asks to preserve names. A downloadable chat attachment is not permission to save elsewhere. Confirm the exact destination before any local or external write.
