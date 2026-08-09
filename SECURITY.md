@@ -1,7 +1,9 @@
 # Security and privacy
 
-Please report vulnerabilities privately through GitHub's security advisory feature rather than a public issue.
+Do not open a public issue containing a private transcript, judgment library, customer example, employee name, contract detail, or internal control evidence.
 
-The core has no telemetry and performs no network calls. That does not make every deployment private. A model adapter may transmit interviews, excerpts, retrieved heuristics, and task context to its configured provider. Treat the adapter as a data egress boundary.
+The repository contains no runtime telemetry, credentials, provider SDK, or automatic network transmission. ChatGPT and Claude process information according to the user’s account, plan, workspace policy, connected services, and data controls.
 
-Do not place real expert transcripts or proprietary corpora in this public repository. Remove customer names, company details, credentials, contract terms, and identifying incident facts from public examples.
+Review every third-party skill before installing it. This project’s distributable skill contains Markdown instructions and references only. It contains no executable skill scripts or package dependencies.
+
+Report repository or packaging vulnerabilities privately through GitHub’s security-reporting feature when available.

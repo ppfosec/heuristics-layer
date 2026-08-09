@@ -1,120 +1,118 @@
-# The Heuristics Layer
+# Heuristics Layer
 
-**Models have knowledge. Heuristics give them judgment.**
+**I taught ChatGPT how I make GRC decisions while doing the dishes.**
 
-A vendor says its administrators share a privileged account protected by CyberArk. One analyst rejects the answer at “shared account.” Another accepts it at “CyberArk.” Both stopped early.
+Heuristics Layer is a voice-first interview and editorial system for experienced Governance, Risk and Compliance practitioners.
 
-The useful judgment sits underneath those labels: Can each session be tied to a named person? Was access approved and time-bound? Can the vendor demonstrate what happened? Does the account reach a system important enough to escalate?
+Set it up once on your laptop. Open the same Project on your phone. Talk through a difficult vendor decision, policy exception, audit disagreement, control gap, or interview answer while you walk the dog, fold laundry, or stare at the dishes you were definitely going to do earlier.
 
-The Heuristics Layer is an open framework for extracting that kind of tacit expert judgment through structured interviews, editing it into reviewable heuristics, and retrieving the relevant subset when a model has to make a decision. GRC is the first reference domain. The machinery is domain-agnostic.
+The LLM does more than transcribe the conversation. It probes what you noticed, who wanted what, who could block the decision, which evidence changed your confidence, how adoption affected the control, what you chose not to escalate, and how you explained the trade-off. It then challenges its own interpretation and produces reviewable Markdown.
 
-This repository contains a working v0.1 vertical slice:
+The result is a private, reusable representation of how you operate in GRC.
+
+## The actual workflow
 
 ```text
-synthetic interview -> notes -> candidates -> challenge -> review
-                                                     |
-                                                     v
-                                      approved Markdown heuristics
-                                                     |
-                                                     v
-                                     compiled JSON -> retrieval
-                                                     |
-                                                     v
-                                      reasoning context -> eval
+DESKTOP SETUP, ONCE
+Create a cloud ChatGPT or Claude Project
+Install the supplied instructions and files
+                    |
+                    v
+MOBILE OR LAPTOP VOICE
+Talk through one real GRC decision
+The interviewer follows judgment, incentives, and trade-offs
+Say: "Close and process"
+                    |
+                    v
+LLM EDITORIAL PASS
+Reconstruct -> extract -> challenge -> evaluate
+                    |
+                    v
+DESKTOP REVIEW
+Approve, revise, or reject candidates
+Update the private judgment library
 ```
 
-It is local-first, provider-neutral, and deliberately boring. There is no agent framework, hosted vector database, telemetry service, or browser-delivered private corpus hiding behind the diagram.
+Laptop interviews work. Mobile voice is the point: no uploading files, rebuilding prompts, or typing with your thumbs after the initial setup.
 
-## Run the complete demonstration
+## Install
 
-Requirements: Node.js 22 or 24 and npm.
+Choose one platform:
+
+- [Set up ChatGPT](packages/chatgpt/START_HERE.md)
+- [Set up Claude](packages/claude/START_HERE.md)
+
+The platform choices and current cross-device limitations are documented in [Platform notes](docs/PLATFORM_NOTES.md).
+
+Paid plans are the primary design target because Project memory, file creation, and desktop work surfaces make the complete loop more useful. If the workflow works on a free plan, good. The product does not contort itself around the weakest surface.
+
+The downloadable release contains one ZIP for ChatGPT and one for Claude. Setup happens on desktop. Interviews happen in the same cloud Project on mobile or desktop.
+
+## What it extracts
+
+Heuristics Layer is not trying to teach a model that SOC 2 exists or that privileged access is sensitive. Models already have plenty of compliance documents.
+
+It is trying to capture judgment such as:
+
+- when a formally stronger control will fail because the operating team will route around it;
+- how to distinguish a contractual requirement from a security-team preference;
+- who owns the budget, who inherits the work, and who can quietly veto the decision;
+- when organizational history deserves weight and when it has become bias;
+- which missing evidence changes risk and which only changes confidence;
+- how reversibility affects the amount of certainty required;
+- how to explain the same residual risk to engineering, procurement, finance, and an executive.
+
+Domain facts are evidence. The product is the practitioner’s way of navigating the people and trade-offs around those facts.
+
+## What a completed interview produces
+
+Each session produces a Markdown packet with:
+
+- the decision scene;
+- facts, claims, and unknowns;
+- a stakeholder and incentive map;
+- the practitioner’s decision path;
+- a small set of candidate heuristics;
+- counterexamples and alternative interpretations;
+- qualitative evaluation with transcript evidence;
+- unresolved questions;
+- proposed changes to the private judgment library;
+- job-interview feedback when using rehearsal mode.
+
+See the [synthetic example](examples/ai-vendor-plan/session-packet.md). It demonstrates the output shape, not Pierre-Paul Ferland’s actual expert corpus.
+
+## The LLM does the judgment work
+
+The old v0.1 treated the product too much like a TypeScript pipeline. That implementation has been removed.
+
+Extraction and evaluation are semantic work. The LLM must interpret the transcript, test competing explanations, notice missing context, challenge overconfident candidates, and decide what deserves another question.
+
+Deterministic code remains only for packaging and repository validation. It does not pretend to infer tacit expertise.
+
+## Human approval remains mandatory
+
+The model may recommend that a candidate be approved, revised, probed, merged, split, or rejected. It cannot promote its own inference into approved expert knowledge.
+
+The practitioner owns the library. A plausible paragraph is not provenance.
+
+## Privacy
+
+Raw interviews and the resulting judgment library are private by default. This public repository contains the method, installation packs, and synthetic examples. It does not contain Pierre-Paul’s accumulated GRC corpus.
+
+Read the [privacy boundary](core/PRIVACY.md) before using company or customer examples.
+
+## Build the release packages
+
+The product itself does not require a CLI. Maintainers can build and validate the downloadable ZIP files with Python’s standard library:
 
 ```bash
-npm install
-npm run check
-npm run demo
-npm run eval
+python scripts/validate.py
+python scripts/build_release.py
+python scripts/validate.py --dist
 ```
-
-The demo imports [a synthetic GRC interview](examples/interviews/B-shared-privileged-access.md), creates two candidate heuristics, challenges them, records fixture review decisions, compiles the approved Markdown, retrieves both heuristics for a new vendor statement, and writes an observable reasoning context. The eval compares the same deterministic reasoner with and without the retrieved heuristics.
-
-The fixture should produce a positive rubric delta. That proves the plumbing and evaluation contract work. It does **not** prove that heuristics improve every model, domain, or real assessment. That claim needs representative cases and expert-reviewed corpora.
-
-Generated artifacts are written to `.heuristics-demo/` and ignored by Git.
-
-## What is a heuristic here?
-
-A heuristic is a versioned expert judgment object. Its principle is only one part. It can also carry triggers, signals, probes, exceptions, compensating factors, escalation conditions, examples, counterexamples, related heuristics, and source excerpts.
-
-Approved sources use Markdown with YAML frontmatter. Experts can read and edit them without working inside a JSON object. Compilation validates the source and emits normalized JSON for applications.
-
-```markdown
----
-id: evidence.certification_scope
-version: 0.1.0
-status: approved
-domains: [tprm, core]
-category: evidence_quality
----
-
-## Principle
-
-Certification should reduce uncertainty only for risks, systems,
-periods, and controls demonstrably covered by its scope.
-
-## Probes
-
-- Is the relevant service in scope?
-- Is the relevant control covered?
-- Does the audit period apply?
-```
-
-The complete object contract is in [the schema](schemas/heuristic.schema.json).
-
-## CLI
-
-```bash
-heuristics import interview.md
-heuristics notes interview-id
-heuristics extract interview-id
-heuristics challenge interview-id heuristic.one heuristic.two
-heuristics review heuristic.one --action approve --reviewer "Expert name" --confidence high --reason "Challenge resolved"
-heuristics compile
-heuristics search "shared privileged account protected by a vault" --domain tprm
-heuristics demo
-heuristics eval
-heuristics eval-blind --evaluation .heuristics-demo/evals/EVAL-TPRM-002.json
-heuristics eval-grade <blind-review.json> --label A --grader "Expert" --scores 4,3,5 --overall 4
-```
-
-The bundled provider is a deterministic synthetic fixture. Connect a real model by implementing `ElicitationModel` for interview processing and `ReasoningModel` for downstream reasoning. The core keeps prompts, schemas, lifecycle enforcement, provenance, compilation, retrieval, and eval records outside provider code.
-
-## Public framework, private judgment
-
-This repository teaches the method. It contains synthetic transcripts and sanitized examples. It should not contain Pierre-Paul Ferland's accumulated GRC corpus, raw interviews, customer situations, or unresolved working notes.
-
-A private corpus can live in a private repository, mounted directory, or private package. A backend points the runtime at that corpus, retrieves only what a task needs, and sends only that selected context to the configured model provider. The browser receives the structured result, not the corpus.
-
-See the [private corpus guide](docs/private-corpus.md) before using real interviews.
-
-## Design choices
-
-- Cognitive task analysis informs the interview behavior: concrete incidents, cues, strategies, exceptions, and novice traps.
-- Model output cannot approve itself. Approval is an explicit lifecycle transition with reviewer identity, time, reason, and provenance.
-- Retrieval is weighted lexical search in v0.1. Every hit includes its score, matched terms, and reason. Embeddings can be added behind an adapter when evidence justifies them.
-- The reasoning harness requests facts, applied heuristic IDs, evidence, inference, uncertainty, open questions, escalation, and conclusion. It does not request hidden chain-of-thought.
-- Apache 2.0 permits commercial applications and proprietary corpora while providing an explicit patent grant.
-
-Read the [research basis](docs/research.md), [architecture](docs/architecture.md), [interviewer specification](docs/interviewer-spec.md), and [ADRs](docs/adr/) for the full record.
-
-Interview work can start in one of [five modes](docs/interview-modes.md). Corpus-aware briefings bring prior coverage, open questions, contradictions, and promising probes into the next conversation. Candidate heuristics are checked against an [eight-part editorial rubric](docs/editorial-rubric.md) before expert review.
-
-The public [evaluation dataset](evals/cases/) contains seven synthetic GRC cases. Each records the evidence, expected expert considerations, likely novice mistake, relevant heuristic IDs, and rubric.
 
 ## Project status
 
-Version `0.1.0` is an executable reference implementation, not a finished theory of expertise. The next evidentiary milestone is a real, private interview with Pierre-Paul, followed by expert review and evaluation against representative GRC cases. Synthetic expertise does not become real because the tests are green.
+Version 0.2 is the voice-first product pivot. The next evidence milestone is a complete private interview with Pierre-Paul, followed by expert review of the resulting candidates and a second interview that tests whether the Project learned anything useful.
 
-## Contributing
-
-Start with [CONTRIBUTING.md](CONTRIBUTING.md). Security and privacy reports belong in [SECURITY.md](SECURITY.md).
+Models have knowledge. The work here is making experienced judgment reusable without flattening it into another checklist.

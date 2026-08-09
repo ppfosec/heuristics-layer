@@ -1,41 +1,29 @@
 # Architecture
 
-The v0.1 architecture is a local-first TypeScript library and CLI. It preserves the responsibilities in the larger vision without turning each responsibility into a service.
+The architecture is mostly instructions because the core work is interpretation.
 
 ```text
-transcript -> notes -> candidates -> challenges -> explicit review
-                                                  |
-                                                  v
-                                       approved Markdown sources
-                                                  |
-                                                  v
-                                      compiled JSON corpus
-                                                  |
-                                     retrieve + assemble context
-                                                  |
-                                           model adapter
-                                                  |
-                                           evaluation record
+core protocols
+    |
+    +-- ChatGPT Project package
+    |
+    +-- Claude skill + cloud Project package
+
+voice conversation
+    -> session packet
+    -> expert review
+    -> private judgment library
+    -> later LLM use
 ```
 
-The workflow has two boundaries:
+## Semantic layer
 
-- `StructuredModel` is the provider-neutral generation boundary for notes, extraction, challenge, and reasoning.
-- `Corpus` is the stable consumption boundary. Applications do not need interview or editorial code.
+The LLM interviews, reconstructs the decision, separates facts from judgment, proposes candidates, generates counterexamples, tests alternative explanations, identifies gaps, and evaluates candidate quality.
 
-The bundled synthetic adapter is deterministic and offline. It is a fixture for testing the complete workflow, not a claim that keyword rules can elicit real expertise.
+## Deterministic layer
 
-## Confidence is not one number
+Repository code packages ZIP files and validates required files, skill metadata, unresolved placeholders, internal links, and release contents. It does not extract or score practitioner judgment.
 
-The system keeps four concepts separate:
+## Public and private material
 
-- Expert confidence is recorded on an approved heuristic with a rationale.
-- Retrieval relevance is a query-specific score with matched terms and a reason.
-- Evidence confidence belongs to the reasoning artifact and describes the support available for the current case.
-- Model confidence is optional provider output. It cannot substitute for evidence confidence or expert approval.
-
-## Public and private data
-
-The public repository contains methods, schemas, prompts, synthetic transcripts, sanitized examples, runtime code, and evals. Real transcripts, working notes, rejected candidates, and the private GRC corpus belong in a separate directory or private repository. The runtime accepts a corpus path; it never transmits or discovers corpora and has no telemetry.
-
-See the ADRs for decisions and tradeoffs.
+The repository ships public protocols and fictional examples. Raw transcripts, private session packets, and the approved judgment library remain in the user’s selected account and storage.

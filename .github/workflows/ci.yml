@@ -1,4 +1,4 @@
-name: CI
+name: validate
 
 on:
   push:
@@ -8,13 +8,13 @@ permissions:
   contents: read
 
 jobs:
-  verify:
+  product:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-python@v5
         with:
-          node-version: 24
-          cache: npm
-      - run: npm ci
-      - run: npm run verify:v0.1
+          python-version: "3.12"
+      - run: python scripts/validate.py
+      - run: python scripts/build_release.py
+      - run: python scripts/validate.py --dist

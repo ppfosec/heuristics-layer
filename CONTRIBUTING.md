@@ -1,17 +1,15 @@
 # Contributing
 
-Contributions should preserve the project's central distinction: model-generated candidates are not approved expert knowledge.
+Heuristics Layer is deliberately small. Contributions should improve the voice interview, semantic challenge, expert review, privacy, cross-device setup, or clarity of the resulting Markdown.
 
-Before opening a pull request:
+Do not add a CLI, provider abstraction, vector database, orchestration framework, or deterministic heuristic scorer without a demonstrated user need.
+
+Before opening a change:
 
 ```bash
-npm install
-npm run check
-npm run build
-npm run demo
-npm run eval
+python scripts/validate.py
+python scripts/build_release.py
+python scripts/validate.py --dist
 ```
 
-Add tests for schema, lifecycle, provenance, compilation, retrieval, or compatibility changes. Use synthetic or sanitized fixtures only. Do not submit a real transcript, customer example, employer artifact, or private corpus excerpt.
-
-Significant object-model, storage, retrieval, provider, privacy, versioning, or distribution changes need a short ADR in `docs/adr/`.
+Use fictional or thoroughly sanitized GRC examples. Never contribute raw customer, employee, vendor, or employer material.

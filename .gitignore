@@ -1,11 +1,9 @@
-node_modules/
 dist/
-coverage/
-.heuristics/
 .heuristics-demo/
-.heuristics-demo*/
+.heuristics-demo-dist/
 .pack-test/
-*.log
-.env
-.env.*
-!.env.example
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
