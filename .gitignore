@@ -1,0 +1,9 @@
+dist/
+.heuristics-demo/
+.heuristics-demo-dist/
+.pack-test/
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
