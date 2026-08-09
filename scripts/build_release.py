@@ -24,16 +24,29 @@ def build_portable_skill(destination: Path) -> None:
                 add_file(archive, source, relative.as_posix())
 
 
+def build_repository_template(destination: Path) -> None:
+    template = ROOT / "packages" / "claude" / "heuristics-layer" / "assets" / "private-heuristics-repository"
+    with zipfile.ZipFile(destination, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+        for source in sorted(template.rglob("*")):
+            if source.is_file():
+                relative = source.relative_to(template.parent)
+                add_file(archive, source, relative.as_posix())
+
+
 def build_chatgpt() -> Path:
     output = DOWNLOADS / f"heuristics-layer-chatgpt-v{VERSION}.zip"
     package = ROOT / "packages" / "chatgpt"
     with tempfile.TemporaryDirectory() as temporary_directory:
         skill_zip = Path(temporary_directory) / "heuristics-layer-skill.zip"
+        repository_zip = Path(temporary_directory) / "private-heuristics-repository.zip"
         build_portable_skill(skill_zip)
+        build_repository_template(repository_zip)
         with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as archive:
             for name in ("START_HERE.md", "PROJECT_INSTRUCTIONS.md", "HEURISTICS_LAYER.md"):
                 add_file(archive, package / name, name)
             add_file(archive, skill_zip, "OPTIONAL_HEURISTICS_LAYER_SKILL.zip")
+            add_file(archive, repository_zip, "PRIVATE_HEURISTICS_REPOSITORY.zip")
+            add_file(archive, ROOT / "core" / "NORMALIZE_AND_PUBLISH.md", "NORMALIZE_AND_PUBLISH.md")
             add_file(archive, ROOT / "core" / "PRIVACY.md", "PRIVACY.md")
             add_file(archive, ROOT / "core" / "JUDGMENT_REPOSITORY.md", "JUDGMENT_REPOSITORY.md")
             add_file(archive, ROOT / "core" / "JUDGMENT_LIBRARY.md", "JUDGMENT_LIBRARY.md")
@@ -46,12 +59,16 @@ def build_claude() -> Path:
     package = ROOT / "packages" / "claude"
     with tempfile.TemporaryDirectory() as temporary_directory:
         skill_zip = Path(temporary_directory) / "heuristics-layer-skill.zip"
+        repository_zip = Path(temporary_directory) / "private-heuristics-repository.zip"
         build_portable_skill(skill_zip)
+        build_repository_template(repository_zip)
         with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as archive:
             add_file(archive, package / "START_HERE.md", "00_START_HERE.md")
             add_file(archive, package / "project" / "PROJECT_INSTRUCTIONS.md", "CLAUDE_INSTRUCTIONS.md")
             add_file(archive, package / "project" / "HEURISTICS_LAYER.md", "HEURISTICS_LAYER.md")
             add_file(archive, skill_zip, "OPTIONAL_HEURISTICS_LAYER_SKILL.zip")
+            add_file(archive, repository_zip, "PRIVATE_HEURISTICS_REPOSITORY.zip")
+            add_file(archive, ROOT / "core" / "NORMALIZE_AND_PUBLISH.md", "NORMALIZE_AND_PUBLISH.md")
             add_file(archive, ROOT / "core" / "PRIVACY.md", "PRIVACY.md")
             add_file(archive, ROOT / "core" / "JUDGMENT_REPOSITORY.md", "JUDGMENT_REPOSITORY.md")
             add_file(archive, ROOT / "core" / "JUDGMENT_LIBRARY.md", "JUDGMENT_LIBRARY.md")

@@ -6,6 +6,8 @@ Treat raw interviews, company context, customer examples, internal politics, and
 - Remove customer, vendor, employee, system, and contract identifiers unless needed and approved.
 - Keep raw transcripts in the user's chosen ChatGPT or Claude account unless the user deliberately exports them.
 - Do not place private session packets, proposed library changes, or judgment libraries in this public repository.
+- Grant ChatGPT Work or Claude Cowork access only to the selected private repository folder, never an entire home directory or broad drive.
+- Do not synchronize the private repository or initialize a remote backup without explicit authorization.
 - Before sharing an artifact, create a sanitized copy and review every excerpt.
 - Treat a downloadable chat attachment as the default file output.
 - Do not write to a local folder, repository, Project file area, Google Drive, or another service unless the user explicitly chooses the exact destination and completes the platform's normal confirmation flow.

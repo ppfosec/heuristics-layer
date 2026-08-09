@@ -23,4 +23,6 @@ Do not replace the required evidence fields with a general narrative. Every cand
 
 The proposed-changes file contains the source-session reference, a change-summary table, portable candidate wording, promotion criteria, and recommended review order. If no candidate survives challenge, state `No proposed library change` and explain why.
 
+In `normalize-and-publish`, update the authoritative library, publication log, unresolved queue, intake manifest, processed evidence, and repository state only after explicit conversational approval. Every published entry requires a stable identifier, semantic version, relationships, approval record, boundaries, counterexample, uncertainty, and provenance. If direct folder writes are unavailable, create one complete replacement repository ZIP.
+
 For job rehearsal, assess whether the answer revealed the decision and stakes, stakeholders and incentives, evidence and uncertainty, trade-offs, rejected alternatives, actions, communication, result, and learning. Identify what a hiring manager still could not determine. Do not manufacture experience.

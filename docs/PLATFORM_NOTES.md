@@ -16,6 +16,10 @@ Voice availability depends on the plan, workspace settings, region, and app vers
 
 Observed in the 2026-08-09 paid-account acceptance run: the same prepared chat synchronized from desktop to mobile and supported a satisfactory voice interview and file generation. The attachments created by the mobile sandbox were available on mobile but were not downloadable when the chat returned to desktop. Reopening the completed chat in ChatGPT Work and regenerating the same outputs produced desktop-downloadable files. The installer documents this as a handoff limitation and forbids changing the analysis during regeneration.
 
+ChatGPT Work in the desktop app can open a local folder or project after the user grants access. Local files and outputs remain on that computer unless explicitly moved or shared. Work on web and mobile cannot directly access local computer files. Version 0.3 therefore uses mobile or web for interviewing and ChatGPT Work on desktop for the normalize-and-publish transaction. [ChatGPT Work and Codex](https://help.openai.com/en/articles/20001275-chatgpt-work-and-codex)
+
+When Work or local folder access is unavailable, the platform-independent fallback uploads the complete repository ZIP to an ordinary file-capable chat and returns one complete replacement ZIP. This requires attachment and download actions but no internal file editing.
+
 ## Claude
 
 Claude supports custom Skills uploaded as ZIP files. Skills require `Code execution and file creation` to be enabled even when the Skill itself contains only instructions and references. [Use skills in Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
@@ -32,4 +36,6 @@ Observed in the 2026-08-09 acceptance run: Claude completed a substantive voice 
 
 The practitioner found ChatGPT's interviewing stronger in these particular runs. Both models showed useful curiosity and digging behavior. That comparison is recorded as a model-and-run observation, not a package verdict: the source stories differed, and Claude's final files were produced after later contract hardening. Job rehearsal now deliberately constrains that curiosity so the simulated interview remains plausible before the deeper evaluation pass.
 
-Remote Cowork sessions are rolling out across surfaces, but Cowork project data is still documented as desktop-local with no cloud sync. The product therefore uses a regular cloud Claude Project for the interview environment and treats Cowork as an optional desktop curation surface. [Projects in Claude Cowork](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork)
+Claude Cowork can read and write only the local folders the user connects, and local access requires Claude Desktop to remain available. Cowork sessions can be monitored from other surfaces, but Cowork project data is still documented as desktop-local without cloud sync. Version 0.3 uses a regular cloud Claude Project for mobile interviews and Claude Cowork on desktop for the normalize-and-publish transaction. [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork) [Projects in Claude Cowork](https://support.claude.com/en/articles/14116274-organize-your-tasks-with-projects-in-claude-cowork)
+
+When Cowork or local folder access is unavailable, the same complete-ZIP fallback works in an ordinary file-capable Claude chat.
