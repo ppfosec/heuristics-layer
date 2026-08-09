@@ -44,7 +44,7 @@ Choose one platform:
 
 The platform choices and current cross-device limitations are documented in [Platform notes](docs/PLATFORM_NOTES.md).
 
-Claude's custom Skill is optional. The first interview uses two ordinary uploaded Markdown files so a Skill installation problem cannot block the product.
+Both downloads include the same optional portable Agent Skill. The first interview still uses two ordinary uploaded Markdown files so a Skill installation problem cannot block the product. Neither platform currently documents custom Skill activation as guaranteed inside live voice, so the Project or uploaded-file path remains the tested voice runtime.
 
 Paid plans are the primary design target because Project memory, file creation, and desktop work surfaces make the complete loop more useful. If the workflow works on a free plan, good. The product does not contort itself around the weakest surface.
 
@@ -121,6 +121,6 @@ python scripts/validate.py --downloads
 
 ## Project status
 
-Version 0.2 is the voice-first product pivot. Automated and synthetic forward tests pass. Final release acceptance still requires one real paid-account ChatGPT run and one real paid-account Claude run using the [live acceptance record](docs/LIVE_ACCEPTANCE_RECORD.md).
+Version 0.2 is the voice-first product pivot. Automated and synthetic forward tests pass. Real ChatGPT and Claude voice runs have also passed, with different file-handoff limitations documented in the [live acceptance record](docs/LIVE_ACCEPTANCE_RECORD.md).
 
 Models have knowledge. The work here is making experienced judgment reusable without flattening it into another checklist.

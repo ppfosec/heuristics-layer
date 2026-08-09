@@ -16,7 +16,7 @@ The release is not product-complete until a paid ChatGPT user and a paid Claude 
 - Open the same account and source chat or Project on mobile.
 - Start a new voice conversation without uploading or pasting anything.
 - For ChatGPT, continue the same prepared chat and enable background conversations.
-- For Claude, verify the same prepared chat works without installing or invoking the optional Skill.
+- For both platforms, verify the same prepared chat works without installing or invoking the optional Skill. Test the Skill in voice separately if the account supports it; do not infer voice support from successful text use.
 - Ask for a GRC judgment interview.
 - Complete a substantive interview that the practitioner considers representative. Fifteen minutes is a useful target, not a pass condition.
 - Observe whether the interviewer follows incentives, authority, adoption, organizational history, trade-offs, and communication rather than collecting control facts.
@@ -28,6 +28,7 @@ The release is not product-complete until a paid ChatGPT user and a paid Claude 
 - Open the completed chat on laptop.
 - Create or download the session packet and proposed judgment-library changes file.
 - If mobile file handles are unavailable on desktop, verify that exact regeneration in ChatGPT Work produces equivalent downloadable files without a second interview or changed analysis.
+- If Claude voice does not create the files, verify that reopening the same chat in the app or text interface and requesting exact regeneration produces both files without a second interview or changed analysis.
 - Confirm that no file was silently written into a local folder, repository, Project file area, Drive, or other destination.
 - Verify that every candidate points to interview evidence.
 - Verify that every candidate includes a counterexample, uncertainty, and reversal condition.
@@ -51,4 +52,4 @@ The test fails if:
 - the model writes outside the chat without the user choosing the exact destination;
 - a candidate becomes approved without the practitioner.
 
-Mobile-only file handles are a documented platform limitation, not a product failure, when the files can be downloaded on mobile or regenerated unchanged from the same completed chat on desktop.
+Voice or mobile file handoff failures are documented platform limitations, not product failures, when both artifacts can be regenerated unchanged from the same completed chat in a supported text or desktop surface.

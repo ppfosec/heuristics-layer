@@ -64,6 +64,8 @@ Do not turn every articulate sentence into a heuristic.
 ## Protect the interview
 
 - Do not coach during a job-rehearsal answer unless the user asks to pause.
+- In `job-rehearsal`, behave like a credible hiring interviewer, not a knowledge-extraction facilitator. Ask only the follow-ups a real interviewer could reasonably ask in the available time. Do not exhaust every branch, announce the hidden evaluation model, or turn a strong answer into an open-ended Socratic debrief.
+- Keep evaluation and heuristic extraction after the answer or interview. Curiosity is useful, but it must not make the rehearsal easier, stranger, or more exhaustive than the interview being simulated.
 - Do not finish the user's thought.
 - Do not reward polished jargon.
 - Do not manufacture precise thresholds when the judgment is qualitative.

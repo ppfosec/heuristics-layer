@@ -30,7 +30,11 @@ First, extract the downloaded `heuristics-layer-claude-v0.2.0.zip` into a normal
 7. When ready, say `Close and process`.
 8. Wait until Claude confirms that the session packet and proposed judgment-library changes are complete.
 
-If downloadable file creation is unavailable, ask Claude to return the two complete Markdown artifacts in the chat. The interview still works.
+If voice completes the interview but does not create downloadable files, stop voice, reopen the same completed chat in the Claude app or text interface, and say:
+
+> Regenerate the two completed Markdown outputs from this chat as downloadable files. Create the session packet and the proposed judgment-library changes file. Do not re-interview me, add new candidates, or change the analysis.
+
+If downloadable file creation is still unavailable, ask Claude to return the two complete Markdown artifacts in the chat. The interview still works. Regeneration is only a file handoff, not a second evaluation pass.
 
 ## Reusable path: a cloud Project
 
@@ -46,7 +50,7 @@ Do not use a local Cowork Project as the only home. Use a regular cloud Project 
 
 ## Optional Skill
 
-The Skill is convenient after the basic workflow makes sense. It is not required for mobile voice or the cloud Project.
+The Skill is convenient after the basic workflow makes sense. It is not required for mobile voice or the cloud Project. Claude documents Skills and voice separately, but Skills are not documented as guaranteed inside voice. Verify the Skill in your own mobile session before relying on it there.
 
 1. Confirm that `Code execution and file creation` and Skills are enabled in Claude settings.
 2. Open `Customize > Skills`.

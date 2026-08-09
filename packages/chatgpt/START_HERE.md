@@ -4,6 +4,8 @@ The fastest tested path is one ordinary ChatGPT chat. Set it up on desktop or we
 
 First, extract the downloaded `heuristics-layer-chatgpt-v0.2.0.zip` into a normal folder. Open `START_HERE.md` from that folder.
 
+The download also contains `OPTIONAL_HEURISTICS_LAYER_SKILL.zip`. Leave it zipped for now. The uploaded-files workflow below is the tested voice path.
+
 ## What you need
 
 - A paid ChatGPT plan, ChatGPT desktop or web, and the current ChatGPT Mobile app.
@@ -50,6 +52,18 @@ Use this after the first interview if you want to start future interviews withou
 5. Open the same Project chat on mobile and use voice as above.
 
 The Project is the reusable home. The single-chat path is the quickest way to prove the workflow before building a private corpus.
+
+## Optional Skill
+
+Eligible ChatGPT workspaces can install `OPTIONAL_HEURISTICS_LAYER_SKILL.zip` as a personal Skill. It is a portable Agent Skill and contains the same interview and evaluation behavior as the Claude download.
+
+1. In the ChatGPT sidebar, open `Plugins`, then the `Skills` tab.
+2. Select `Create`, then `Upload from your computer`.
+3. Upload `OPTIONAL_HEURISTICS_LAYER_SKILL.zip` and wait for the safety scan.
+4. If you want it on both desktop and web/mobile, add it separately on each surface. Personal Skills do not automatically sync across those surfaces.
+5. Start a new text chat and ask: `Use Heuristics Layer to interview me about a GRC decision.` Confirm that the Skill is invoked before testing voice.
+
+Skills are not documented as guaranteed inside voice, and personal Skill availability and installation can vary by workspace and surface. Do not delete the Project instructions or uploaded runtime after installing it. Until you verify the Skill in your own mobile voice session, treat it as an account-level text and desktop convenience, not the voice runtime.
 
 ## Recover the files on desktop
 

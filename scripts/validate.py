@@ -40,6 +40,7 @@ CHATGPT_CONTENTS = {
     "START_HERE.md",
     "PROJECT_INSTRUCTIONS.md",
     "HEURISTICS_LAYER.md",
+    "OPTIONAL_HEURISTICS_LAYER_SKILL.zip",
     "PRIVACY.md",
     "JUDGMENT_REPOSITORY.md",
     "JUDGMENT_LIBRARY.md",
@@ -57,7 +58,7 @@ CLAUDE_CONTENTS = {
     "LICENSE",
 }
 
-CLAUDE_SKILL_CONTENTS = {
+PORTABLE_SKILL_CONTENTS = {
     "heuristics-layer/SKILL.md",
     "heuristics-layer/references/interview-protocol.md",
     "heuristics-layer/references/grc-judgment-model.md",
@@ -92,9 +93,9 @@ def validate_source(failures: list[str]) -> None:
         skill = skill_path.read_text(encoding="utf-8")
         frontmatter = re.match(r"^---\nname: ([a-z0-9-]+)\ndescription: (.+)\n---\n", skill)
         if not frontmatter:
-            fail("Claude SKILL.md has invalid frontmatter", failures)
+            fail("portable SKILL.md has invalid frontmatter", failures)
         elif frontmatter.group(1) != "heuristics-layer":
-            fail("Claude skill name must be heuristics-layer", failures)
+            fail("portable skill name must be heuristics-layer", failures)
 
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
     for link in re.findall(r"\[[^]]+\]\(([^)]+)\)", readme):
@@ -135,7 +136,7 @@ def validate_source(failures: list[str]) -> None:
     chatgpt_start = (ROOT / "packages" / "chatgpt" / "START_HERE.md").read_text(encoding="utf-8").lower()
     if "same account and workspace" not in chatgpt_start or "turn on voice" not in chatgpt_start:
         fail("ChatGPT guide must cover the cross-device voice handoff", failures)
-    for phrase in ("same chat appears on your phone", "background conversations", "data controls", "mobile file sandbox", "chatgpt work", "two completed markdown outputs"):
+    for phrase in ("same chat appears on your phone", "background conversations", "data controls", "mobile file sandbox", "chatgpt work", "two completed markdown outputs", "optional_heuristics_layer_skill.zip", "not documented as guaranteed inside voice"):
         if phrase not in chatgpt_start:
             fail(f"ChatGPT guide missing tested workflow or limitation: {phrase}", failures)
 
@@ -147,7 +148,7 @@ def validate_source(failures: list[str]) -> None:
     claude_start = (ROOT / "packages" / "claude" / "START_HERE.md").read_text(encoding="utf-8").lower()
     if "cowork" not in claude_start or "same account" not in claude_start:
         fail("Claude guide must cover the cross-device boundary", failures)
-    for phrase in ("extract the downloaded", "leave `optional_heuristics_layer_skill.zip` zipped", "start with one ordinary claude chat", "claude_instructions.md", "same chat", "optional skill", "not a runtime dependency", "judgment_repository.md", "included empty starter"):
+    for phrase in ("extract the downloaded", "leave `optional_heuristics_layer_skill.zip` zipped", "start with one ordinary claude chat", "claude_instructions.md", "same chat", "optional skill", "not a runtime dependency", "judgment_repository.md", "included empty starter", "regenerate the two completed markdown outputs", "not documented as guaranteed inside voice"):
         if phrase not in claude_start:
             fail(f"Claude guide missing simplified workflow or repository repair: {phrase}", failures)
 
@@ -161,7 +162,7 @@ def validate_source(failures: list[str]) -> None:
     executable_suffixes = {".py", ".js", ".ts", ".sh", ".ps1", ".exe"}
     executables = [path for path in skill_root.rglob("*") if path.is_file() and path.suffix.lower() in executable_suffixes]
     if executables:
-        fail("Claude skill must remain instruction-only", failures)
+        fail("portable skill must remain instruction-only", failures)
 
 
 def validate_zip(path: Path, expected: set[str], failures: list[str]) -> None:
@@ -184,16 +185,17 @@ def validate_downloads(failures: list[str]) -> None:
     validate_zip(chatgpt, CHATGPT_CONTENTS, failures)
     validate_zip(claude, CLAUDE_CONTENTS, failures)
 
-    if claude.is_file():
-        with zipfile.ZipFile(claude) as outer:
-            with outer.open("OPTIONAL_HEURISTICS_LAYER_SKILL.zip") as nested:
-                with zipfile.ZipFile(nested) as skill:
-                    actual = {name for name in skill.namelist() if not name.endswith("/")}
-                    if actual != CLAUDE_SKILL_CONTENTS:
-                        fail(
-                            f"unexpected Claude skill contents: expected {sorted(CLAUDE_SKILL_CONTENTS)}, got {sorted(actual)}",
-                            failures,
-                        )
+    for platform, archive_path in (("ChatGPT", chatgpt), ("Claude", claude)):
+        if archive_path.is_file():
+            with zipfile.ZipFile(archive_path) as outer:
+                with outer.open("OPTIONAL_HEURISTICS_LAYER_SKILL.zip") as nested:
+                    with zipfile.ZipFile(nested) as skill:
+                        actual = {name for name in skill.namelist() if not name.endswith("/")}
+                        if actual != PORTABLE_SKILL_CONTENTS:
+                            fail(
+                                f"unexpected {platform} skill contents: expected {sorted(PORTABLE_SKILL_CONTENTS)}, got {sorted(actual)}",
+                                failures,
+                            )
 
     checksum = downloads / "SHA256SUMS.txt"
     if not checksum.is_file() or len(checksum.read_text(encoding="utf-8").splitlines()) != 2:

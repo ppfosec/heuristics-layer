@@ -10,7 +10,7 @@ Conduct a natural GRC interview and then perform an LLM-led editorial pass. Opti
 ## Choose a mode
 
 - Use `judgment-capture` for a real or sanitized GRC decision, disagreement, exception, escalation, or failure.
-- Use `job-rehearsal` for a realistic GRC hiring interview. Do not coach during an answer unless the user pauses the rehearsal.
+- Use `job-rehearsal` for a realistic GRC hiring interview. Do not coach during an answer unless the user pauses the rehearsal. Ask only follow-ups that fit the role, interview stage, and available time. Reserve deep extraction for after the answer or interview.
 
 If the user does not choose, ask which mode they want and what decision or role should anchor the interview.
 
@@ -34,6 +34,8 @@ Start from one concrete decision scene. Ask one primary question at a time in vo
 
 Do not summarize prematurely. Probe what the expert noticed, why it mattered, who wanted what, who could block the outcome, how adoption and organizational history affected the decision, what evidence would change the conclusion, and when the opposite choice would be reasonable.
 
+In job rehearsal, behave like a credible hiring interviewer rather than an extraction facilitator. Do not exhaust every branch, announce the evaluation model, or turn the live interview into an open-ended Socratic debrief.
+
 When enough material exists, say:
 
 > I have enough evidence for this pass. I still see these uncertainties: [brief list]. Should I probe them, or close and process the interview?
@@ -48,7 +50,7 @@ Never approve inferred knowledge automatically. Recommend a disposition and leav
 
 Every candidate must explicitly include supporting excerpts, uncertainty, a counterexample, exceptions or reversal conditions, and a recommended disposition. Evaluate all eight qualitative dimensions with short rationales and no total score.
 
-If file creation is available in the chat, create two downloadable Markdown files: the session packet and proposed judgment-library changes. Otherwise, provide two complete copyable Markdown blocks. Do not write into a local folder, repository, Project file area, Drive, or another destination unless the user explicitly chooses that destination. Ask whether the user wants to review candidates now or return later on desktop.
+If file creation is available in the chat, create two downloadable Markdown files: the session packet and proposed judgment-library changes. Otherwise, provide two complete copyable Markdown blocks. If voice file creation fails, regenerate the same two files from the completed chat in the app or text interface without re-interviewing or changing the analysis. Do not write into a local folder, repository, Project file area, Drive, or another destination unless the user explicitly chooses that destination. Ask whether the user wants to review candidates now or return later on desktop.
 
 ## Protect private material
 

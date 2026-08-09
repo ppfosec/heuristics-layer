@@ -29,24 +29,25 @@ Complete this record with a real paid account before making the v0.2 release fin
 
 ## Claude
 
-- Plan and workspace type:
-- Desktop setup surface:
-- Mobile operating system and Claude app version:
-- Code execution and file creation enabled: yes | no
-- Custom Skill enabled: yes | no
-- Empty Project visible on mobile before installation: pass | fail
-- Project fallback available in a new mobile chat: pass | fail
-- Substantive voice interview completed to practitioner satisfaction: pass | fail
-- `close and process` handled inside the same chat: pass | fail
-- Two-file review bundle available on desktop: pass | fail
-- No silent external or local write: pass | fail
-- One candidate reviewed by the practitioner: approve | revise | reject | not tested
-- Notes and defects:
+- Plan and workspace type: Claude account; exact plan and workspace type not recorded
+- Desktop setup surface: files prepared in Claude, with final file generation repeated in the app; exact initial surface not recorded
+- Mobile operating system and Claude app version: not recorded
+- Code execution and file creation enabled: not recorded
+- Custom Skill enabled: no; uploaded-file workflow tested
+- Prepared chat available for voice: pass
+- Uploaded instructions available in the voice conversation: pass
+- Substantive voice interview completed to practitioner satisfaction: pass
+- Interview processing completed from the same conversation: pass; exact spoken trigger not recorded
+- Two-file review bundle available on desktop: pass after regeneration in the Claude app
+- No silent external or local write: pass; private files were downloaded by the practitioner
+- One candidate reviewed by the practitioner: useful corpus material identified; final approval dispositions not recorded
+- Evidence reviewed: private `2026-08-09-ai-platform-tier-selection-session-packet.md` and `2026-08-09-ai-platform-tier-selection-proposed-library-changes.md`; private contents were not committed
+- Notes and defects: Claude voice failed when asked to generate the downloadable files, so the practitioner repeated the file-generation request in the app. The resulting bundle followed the contract closely: three bounded candidates, deliberate exclusions, supporting evidence, uncertainty, counterexamples, reversal conditions, dispositions, a stakeholder map, a challenge log, and rationales across all eight qualitative dimensions. The recovery workflow now explicitly treats app regeneration as a file handoff and forbids a second interview or changed analysis.
 
 ## Release decision
 
 - ChatGPT acceptance: pass with documented mobile-to-desktop file-regeneration limitation
-- Claude acceptance: not tested
-- Blocking defects: Claude acceptance remains outstanding. No blocking ChatGPT defect after documenting the file handoff and tightening output-contract fidelity.
-- Decision: keep draft until Claude acceptance
-- Approved by: ChatGPT workflow accepted by Pierre-Paul Ferland; final release approval pending
+- Claude acceptance: pass with documented voice-to-app file-regeneration limitation
+- Blocking defects: none in the tested uploaded-file workflows; custom Skill activation inside live voice remains unverified and is not part of the runtime promise
+- Decision: acceptance gates passed; publish after rebuilding and validating both release archives
+- Approved by: both live workflows accepted by Pierre-Paul Ferland; candidate heuristics remain subject to practitioner review
