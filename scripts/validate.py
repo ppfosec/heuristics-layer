@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import io
 import re
 import sys
 import zipfile
@@ -84,6 +85,11 @@ REPOSITORY_TEMPLATE_CONTENTS = {
     if source.is_file()
 }
 
+PRIVATE_REPOSITORY_MARKERS = (
+    "PPF-H-",
+    r"C:\ppfer\Heuristics",
+)
+
 
 def fail(message: str, failures: list[str]) -> None:
     failures.append(message)
@@ -104,6 +110,14 @@ def validate_source(failures: list[str]) -> None:
             fail(f"unresolved placeholder: {path.relative_to(ROOT)}", failures)
         if "\u2014" in text:
             fail(f"em dash found: {path.relative_to(ROOT)}", failures)
+        for marker in PRIVATE_REPOSITORY_MARKERS:
+            if marker.lower() in text.lower():
+                fail(f"private repository marker found: {path.relative_to(ROOT)}", failures)
+
+    acceptance_record = (ROOT / "docs" / "LIVE_ACCEPTANCE_RECORD.md").read_text(encoding="utf-8")
+    for line in acceptance_record.splitlines():
+        if line.startswith("- Evidence reviewed:") and re.search(r"`[^`]+\.(?:md|zip)`", line, flags=re.IGNORECASE):
+            fail("live acceptance record must describe private evidence without publishing its filenames", failures)
 
     skill_path = ROOT / "packages" / "claude" / "heuristics-layer" / "SKILL.md"
     if skill_path.is_file():
@@ -224,6 +238,23 @@ def validate_zip(path: Path, expected: set[str], failures: list[str]) -> None:
             )
 
 
+def validate_archive_privacy(data: bytes, label: str, failures: list[str]) -> None:
+    try:
+        with zipfile.ZipFile(io.BytesIO(data)) as archive:
+            for info in archive.infolist():
+                if info.is_dir():
+                    continue
+                body = archive.read(info)
+                searchable = info.filename.encode("utf-8") + b"\n" + body
+                for marker in PRIVATE_REPOSITORY_MARKERS:
+                    if marker.encode("utf-8").lower() in searchable.lower():
+                        fail(f"private repository marker found in release archive: {label}!{info.filename}", failures)
+                if info.filename.lower().endswith(".zip"):
+                    validate_archive_privacy(body, f"{label}!{info.filename}", failures)
+    except zipfile.BadZipFile:
+        fail(f"invalid nested ZIP archive: {label}", failures)
+
+
 def validate_downloads(failures: list[str]) -> None:
     downloads = ROOT / "downloads"
     chatgpt = downloads / f"heuristics-layer-chatgpt-v{VERSION}.zip"
@@ -233,6 +264,7 @@ def validate_downloads(failures: list[str]) -> None:
 
     for platform, archive_path in (("ChatGPT", chatgpt), ("Claude", claude)):
         if archive_path.is_file():
+            validate_archive_privacy(archive_path.read_bytes(), archive_path.name, failures)
             with zipfile.ZipFile(archive_path) as outer:
                 with outer.open("OPTIONAL_HEURISTICS_LAYER_SKILL.zip") as nested:
                     with zipfile.ZipFile(nested) as skill:
