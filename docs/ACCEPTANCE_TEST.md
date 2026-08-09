@@ -4,6 +4,8 @@ The release is not product-complete until a paid ChatGPT user and a paid Claude 
 
 ## Setup on laptop
 
+- Record the date, plan, workspace type, desktop surface, mobile operating system, and app version in `LIVE_ACCEPTANCE_RECORD.md`.
+- Confirm that an empty cloud Project appears on mobile and that voice is available before uploading the package.
 - Download the platform ZIP.
 - Complete setup without opening a terminal.
 - Confirm the runtime in a cloud Project.
@@ -13,6 +15,8 @@ The release is not product-complete until a paid ChatGPT user and a paid Claude 
 
 - Open the same account and Project on mobile.
 - Start a new voice conversation without uploading or pasting anything.
+- For ChatGPT, use a regular Project chat and enable background conversations.
+- For Claude, verify the Project fallback works even if the custom Skill is not explicitly invoked.
 - Ask for a GRC judgment interview.
 - Answer naturally for at least fifteen minutes.
 - Observe whether the interviewer follows incentives, authority, adoption, organizational history, trade-offs, and communication rather than collecting control facts.
@@ -35,6 +39,8 @@ The release is not product-complete until a paid ChatGPT user and a paid Claude 
 The test fails if:
 
 - mobile requires reinstalling files or instructions;
+- setup depends on ChatGPT Work, Codex, Claude Cowork, or a separately installed mobile Skill;
+- an account or workspace capability is missing and the installer fails to identify it during preflight;
 - the interviewer behaves like a questionnaire;
 - the output mainly summarizes GRC facts;
 - stakeholders and incentives disappear from the analysis;

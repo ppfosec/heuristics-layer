@@ -48,6 +48,8 @@ Paid plans are the primary design target because Project memory, file creation, 
 
 The downloadable release contains one ZIP for ChatGPT and one for Claude. Setup happens on desktop. Interviews happen in the same cloud Project on mobile or desktop.
 
+Before installing, create an empty Project and confirm that it appears on your phone with voice available. That sixty-second check catches disabled workspace permissions and stale mobile apps before you spend fifteen minutes explaining a procurement fight to a phone that was never listening properly.
+
 ## What it extracts
 
 Heuristics Layer is not trying to teach a model that SOC 2 exists or that privileged access is sensitive. Models already have plenty of compliance documents.
@@ -113,6 +115,6 @@ python scripts/validate.py --downloads
 
 ## Project status
 
-Version 0.2 is the voice-first product pivot. The next evidence milestone is a complete private interview with Pierre-Paul, followed by expert review of the resulting candidates and a second interview that tests whether the Project learned anything useful.
+Version 0.2 is the voice-first product pivot. Automated and synthetic forward tests pass. Final release acceptance still requires one real paid-account ChatGPT run and one real paid-account Claude run using the [live acceptance record](docs/LIVE_ACCEPTANCE_RECORD.md).
 
 Models have knowledge. The work here is making experienced judgment reusable without flattening it into another checklist.

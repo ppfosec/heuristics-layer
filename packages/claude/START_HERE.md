@@ -4,9 +4,20 @@ Set this up once on your laptop. Use the cloud Claude Project for interviews so 
 
 ## What you need
 
-- A paid Claude plan is recommended for the strongest Project memory and file experience.
-- Claude web or Desktop for setup.
-- Claude Mobile for hands-free interviews.
+- A paid Claude plan, Claude web or Desktop for setup, and the current Claude Mobile app for the interview.
+- `Code execution and file creation` enabled in `Settings > Capabilities`. Claude requires this capability for custom Skills and downloadable files.
+- Skills enabled for your account or organization. Team and Enterprise administrators can control these capabilities.
+
+## Sixty-second preflight
+
+Before uploading anything private:
+
+1. Create an empty regular Claude Project and confirm that it appears on your phone under the same account.
+2. Start a Project chat on the phone and confirm that the voice control is available.
+3. Confirm that `Code execution and file creation` is enabled on mobile.
+4. If Skills are unavailable or disabled on mobile, continue with the Project setup below. The uploaded Project fallback is sufficient for the interview.
+
+If the Project or voice control is missing, update Claude Mobile and check organization settings before continuing.
 
 ## Install the skill
 
@@ -24,6 +35,8 @@ Set this up once on your laptop. Use the cloud Claude Project for interviews so 
 5. Start a Project chat and say: `Confirm that Heuristics Layer is ready. Do not begin an interview yet.`
 
 Do not use a local Cowork Project as the only setup. Cowork projects are desktop-local and do not provide the same cloud Project on mobile.
+
+The Project instructions and knowledge file deliberately duplicate the essential Skill behavior. That fallback is what keeps the interview usable across devices even if the Skill is not invoked on a particular surface.
 
 ## Use it on your phone
 

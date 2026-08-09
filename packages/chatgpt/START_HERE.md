@@ -4,9 +4,22 @@ Set this up once on your laptop. After that, open the same Project on your phone
 
 ## What you need
 
-- A paid ChatGPT plan is recommended for the strongest Project memory, file, and Work experience.
-- ChatGPT desktop or web for setup.
-- ChatGPT Mobile for hands-free interviews.
+- A paid ChatGPT plan. Projects are broadly available, but this product is designed around the stronger paid-plan context and file experience.
+- ChatGPT desktop or web for setup and the current ChatGPT Mobile app for the interview.
+- Voice enabled for your account and workspace. A Business, Enterprise, Edu, or Healthcare administrator can disable it.
+
+Use a regular chat inside the cloud Project for the interview. No separate agentic desktop surface is required.
+
+## Sixty-second preflight
+
+Before uploading anything private:
+
+1. Create an empty cloud Project and confirm that it appears on your phone under the same account and workspace.
+2. Start a regular Project chat on the phone and confirm that the voice control is available.
+3. In Mobile settings, turn on `Background conversations` if you want to keep talking while doing chores or while the phone is locked.
+4. In a personal workspace, review `Settings > Data Controls`. Voice transcripts and files may be used according to your plan and settings. Business, Enterprise, Edu, and Healthcare workspaces have different data controls.
+
+If the Project or voice control is missing, update the mobile app and check workspace permissions before continuing. Installing more files will not repair an account-level restriction.
 
 ## Five-minute setup
 
@@ -21,7 +34,7 @@ Set this up once on your laptop. After that, open the same Project on your phone
 
 1. Open ChatGPT Mobile with the same account and workspace.
 2. Open `My GRC Judgment`.
-3. Start a new chat inside the Project.
+3. Start a new regular chat inside the Project.
 4. Turn on voice.
 5. Say one of:
    - `Interview me about how I make GRC decisions.`
@@ -39,6 +52,6 @@ Open the completed chat in the same Project. Ask:
 
 > Create the Markdown session packet as a downloadable file, then show me the proposed changes to my judgment library.
 
-Review candidates before approving them. Periodically ask ChatGPT Work to consolidate approved candidates into `JUDGMENT_LIBRARY.md`.
+Review candidates before approving them. Periodically ask a normal text chat in the Project to consolidate approved candidates into `JUDGMENT_LIBRARY.md`.
 
 ChatGPT voice transcripts may differ slightly from the spoken exchange. Treat the transcript as evidence to review, not a courtroom record.

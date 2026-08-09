@@ -29,6 +29,7 @@ REQUIRED_SOURCE_FILES = [
     "packages/claude/heuristics-layer/references/evaluation-protocol.md",
     "packages/claude/heuristics-layer/references/output-contract.md",
     "examples/ai-vendor-plan/session-packet.md",
+    "docs/LIVE_ACCEPTANCE_RECORD.md",
 ]
 
 CHATGPT_CONTENTS = {
@@ -112,13 +113,29 @@ def validate_source(failures: list[str]) -> None:
         if "do not write into a local folder" not in text:
             fail(f"missing explicit file-write boundary: {path.relative_to(ROOT)}", failures)
 
+    for path in (ROOT / "packages").rglob("*.md"):
+        if "codex" in path.read_text(encoding="utf-8").lower():
+            fail(f"customer package must not mention Codex: {path.relative_to(ROOT)}", failures)
+
     chatgpt_start = (ROOT / "packages" / "chatgpt" / "START_HERE.md").read_text(encoding="utf-8").lower()
     if "same account and workspace" not in chatgpt_start or "turn on voice" not in chatgpt_start:
         fail("ChatGPT guide must cover the cross-device voice handoff", failures)
+    for phrase in ("regular chat inside the cloud project", "background conversations", "data controls"):
+        if phrase not in chatgpt_start:
+            fail(f"ChatGPT guide missing platform preflight: {phrase}", failures)
 
     claude_start = (ROOT / "packages" / "claude" / "START_HERE.md").read_text(encoding="utf-8").lower()
     if "cowork" not in claude_start or "same account" not in claude_start:
         fail("Claude guide must cover the cloud Project boundary", failures)
+    for phrase in ("code execution and file creation", "project fallback", "voice control"):
+        if phrase not in claude_start:
+            fail(f"Claude guide missing platform preflight: {phrase}", failures)
+
+    platform_notes = (ROOT / "docs" / "PLATFORM_NOTES.md").read_text(encoding="utf-8").lower()
+    if "learn.chatgpt.com/docs/build-skills" in platform_notes:
+        fail("platform notes still cite the superseded ChatGPT Skills page", failures)
+    if "skills in chatgpt" not in platform_notes or "code execution and file creation" not in platform_notes:
+        fail("platform notes must cover current ChatGPT and Claude Skills boundaries", failures)
 
     skill_root = ROOT / "packages" / "claude" / "heuristics-layer"
     executable_suffixes = {".py", ".js", ".ts", ".sh", ".ps1", ".exe"}
