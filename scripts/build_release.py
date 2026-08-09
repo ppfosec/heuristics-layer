@@ -23,6 +23,7 @@ def build_chatgpt() -> Path:
             add_file(archive, package / name, name)
         add_file(archive, ROOT / "core" / "PRIVACY.md", "PRIVACY.md")
         add_file(archive, ROOT / "core" / "JUDGMENT_REPOSITORY.md", "JUDGMENT_REPOSITORY.md")
+        add_file(archive, ROOT / "core" / "JUDGMENT_LIBRARY.md", "JUDGMENT_LIBRARY.md")
         add_file(archive, ROOT / "LICENSE", "LICENSE")
     return output
 
@@ -43,12 +44,13 @@ def build_claude() -> Path:
         skill_zip = Path(temporary_directory) / "heuristics-layer-skill.zip"
         build_claude_skill(skill_zip)
         with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as archive:
-            add_file(archive, package / "START_HERE.md", "START_HERE.md")
-            add_file(archive, package / "project" / "PROJECT_INSTRUCTIONS.md", "project/PROJECT_INSTRUCTIONS.md")
-            add_file(archive, package / "project" / "HEURISTICS_LAYER.md", "project/HEURISTICS_LAYER.md")
-            add_file(archive, skill_zip, "heuristics-layer-skill.zip")
+            add_file(archive, package / "START_HERE.md", "00_START_HERE.md")
+            add_file(archive, package / "project" / "PROJECT_INSTRUCTIONS.md", "CLAUDE_INSTRUCTIONS.md")
+            add_file(archive, package / "project" / "HEURISTICS_LAYER.md", "HEURISTICS_LAYER.md")
+            add_file(archive, skill_zip, "OPTIONAL_HEURISTICS_LAYER_SKILL.zip")
             add_file(archive, ROOT / "core" / "PRIVACY.md", "PRIVACY.md")
             add_file(archive, ROOT / "core" / "JUDGMENT_REPOSITORY.md", "JUDGMENT_REPOSITORY.md")
+            add_file(archive, ROOT / "core" / "JUDGMENT_LIBRARY.md", "JUDGMENT_LIBRARY.md")
             add_file(archive, ROOT / "LICENSE", "LICENSE")
     return output
 

@@ -18,6 +18,7 @@ REQUIRED_SOURCE_FILES = [
     "core/OUTPUT_CONTRACT.md",
     "core/PRIVACY.md",
     "core/JUDGMENT_REPOSITORY.md",
+    "core/JUDGMENT_LIBRARY.md",
     "packages/chatgpt/START_HERE.md",
     "packages/chatgpt/PROJECT_INSTRUCTIONS.md",
     "packages/chatgpt/HEURISTICS_LAYER.md",
@@ -29,6 +30,7 @@ REQUIRED_SOURCE_FILES = [
     "packages/claude/heuristics-layer/references/grc-judgment-model.md",
     "packages/claude/heuristics-layer/references/evaluation-protocol.md",
     "packages/claude/heuristics-layer/references/output-contract.md",
+    "packages/claude/heuristics-layer/references/judgment-repository.md",
     "examples/ai-vendor-plan/session-packet.md",
     "examples/ai-vendor-plan/proposed-library-changes.md",
     "docs/LIVE_ACCEPTANCE_RECORD.md",
@@ -40,16 +42,18 @@ CHATGPT_CONTENTS = {
     "HEURISTICS_LAYER.md",
     "PRIVACY.md",
     "JUDGMENT_REPOSITORY.md",
+    "JUDGMENT_LIBRARY.md",
     "LICENSE",
 }
 
 CLAUDE_CONTENTS = {
-    "START_HERE.md",
-    "project/PROJECT_INSTRUCTIONS.md",
-    "project/HEURISTICS_LAYER.md",
-    "heuristics-layer-skill.zip",
+    "00_START_HERE.md",
+    "CLAUDE_INSTRUCTIONS.md",
+    "HEURISTICS_LAYER.md",
+    "OPTIONAL_HEURISTICS_LAYER_SKILL.zip",
     "PRIVACY.md",
     "JUDGMENT_REPOSITORY.md",
+    "JUDGMENT_LIBRARY.md",
     "LICENSE",
 }
 
@@ -59,6 +63,7 @@ CLAUDE_SKILL_CONTENTS = {
     "heuristics-layer/references/grc-judgment-model.md",
     "heuristics-layer/references/evaluation-protocol.md",
     "heuristics-layer/references/output-contract.md",
+    "heuristics-layer/references/judgment-repository.md",
 }
 
 
@@ -141,10 +146,10 @@ def validate_source(failures: list[str]) -> None:
 
     claude_start = (ROOT / "packages" / "claude" / "START_HERE.md").read_text(encoding="utf-8").lower()
     if "cowork" not in claude_start or "same account" not in claude_start:
-        fail("Claude guide must cover the cloud Project boundary", failures)
-    for phrase in ("code execution and file creation", "project fallback", "voice control"):
+        fail("Claude guide must cover the cross-device boundary", failures)
+    for phrase in ("extract the downloaded", "leave `optional_heuristics_layer_skill.zip` zipped", "start with one ordinary claude chat", "claude_instructions.md", "same chat", "optional skill", "not a runtime dependency", "judgment_repository.md", "included empty starter"):
         if phrase not in claude_start:
-            fail(f"Claude guide missing platform preflight: {phrase}", failures)
+            fail(f"Claude guide missing simplified workflow or repository repair: {phrase}", failures)
 
     platform_notes = (ROOT / "docs" / "PLATFORM_NOTES.md").read_text(encoding="utf-8").lower()
     if "learn.chatgpt.com/docs/build-skills" in platform_notes:
@@ -181,7 +186,7 @@ def validate_downloads(failures: list[str]) -> None:
 
     if claude.is_file():
         with zipfile.ZipFile(claude) as outer:
-            with outer.open("heuristics-layer-skill.zip") as nested:
+            with outer.open("OPTIONAL_HEURISTICS_LAYER_SKILL.zip") as nested:
                 with zipfile.ZipFile(nested) as skill:
                     actual = {name for name in skill.namelist() if not name.endswith("/")}
                     if actual != CLAUDE_SKILL_CONTENTS:

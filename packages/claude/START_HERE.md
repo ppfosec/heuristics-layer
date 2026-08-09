@@ -1,52 +1,63 @@
-# Install Heuristics Layer in Claude
+# Use Heuristics Layer in Claude
 
-Set this up once on your laptop. Use the cloud Claude Project for interviews so the same environment is available on Claude Mobile.
+Start with one ordinary Claude chat. Ignore the optional Skill until the interview works.
 
-## What you need
+First, extract the downloaded `heuristics-layer-claude-v0.2.0.zip` into a normal folder. Open `00_START_HERE.md` from that folder. Leave `OPTIONAL_HEURISTICS_LAYER_SKILL.zip` zipped unless you choose the optional Skill steps later.
 
-- A paid Claude plan, Claude web or Desktop for setup, and the current Claude Mobile app for the interview.
-- `Code execution and file creation` enabled in `Settings > Capabilities`. Claude requires this capability for custom Skills and downloadable files.
-- Skills enabled for your account or organization. Team and Enterprise administrators can control these capabilities.
+## What the files are
 
-## Sixty-second preflight
+- `CLAUDE_INSTRUCTIONS.md`: short operating instructions for the chat or Project.
+- `HEURISTICS_LAYER.md`: the complete interview and evaluation protocol.
+- `JUDGMENT_REPOSITORY.md`: a guide for you when saving and reviewing outputs. Claude does not need this file to conduct the interview.
+- `JUDGMENT_LIBRARY.md`: an empty private starter library. Nothing enters it without practitioner approval.
+- `OPTIONAL_HEURISTICS_LAYER_SKILL.zip`: an optional account-level Skill for later reuse.
 
-Before uploading anything private:
+## Fast path: one interview chat
 
-1. Create an empty regular Claude Project and confirm that it appears on your phone under the same account.
-2. Start a Project chat on the phone and confirm that the voice control is available.
-3. Confirm that `Code execution and file creation` is enabled on mobile.
-4. If Skills are unavailable or disabled on mobile, continue with the Project setup below. The uploaded Project fallback is sufficient for the interview.
+1. On Claude web or Desktop, start a new regular chat.
+2. Upload `CLAUDE_INSTRUCTIONS.md` and `HEURISTICS_LAYER.md`.
+3. Say:
 
-If the Project or voice control is missing, update Claude Mobile and check organization settings before continuing.
+   > Read both uploaded files. Treat `CLAUDE_INSTRUCTIONS.md` as the operating instructions for this chat and use `HEURISTICS_LAYER.md` as the complete protocol. Confirm that Heuristics Layer is ready. Do not begin the interview yet.
 
-## Install the skill
+4. Optionally upload a résumé, GRC role description, or sanitized background notes.
+5. Open that same chat in Claude Mobile under the same account. Do not create another chat.
+6. Enter voice mode and say:
 
-1. In Claude, open `Customize`, then `Skills`.
-2. Choose `Create skill`, then `Upload a skill`.
-3. Upload `heuristics-layer-skill.zip` from this download.
-4. Enable the skill.
+   - `Interview me about how I make GRC decisions.`
+   - `Run a GRC job interview for this role.`
 
-## Create the cross-device Project
+7. When ready, say `Close and process`.
+8. Wait until Claude confirms that the session packet and proposed judgment-library changes are complete.
+
+If downloadable file creation is unavailable, ask Claude to return the two complete Markdown artifacts in the chat. The interview still works.
+
+## Reusable path: a cloud Project
+
+After the first successful interview:
 
 1. Create a regular cloud Claude Project named `My GRC Judgment`.
-2. Copy `project/PROJECT_INSTRUCTIONS.md` into the Project instructions.
-3. Upload `project/HEURISTICS_LAYER.md` to Project knowledge.
-4. Optionally add your résumé, a GRC job description, or sanitized background notes.
-5. Start a Project chat and say: `Confirm that Heuristics Layer is ready. Do not begin an interview yet.`
+2. Copy the contents of `CLAUDE_INSTRUCTIONS.md` into Project instructions.
+3. Upload `HEURISTICS_LAYER.md` and your current reviewed `JUDGMENT_LIBRARY.md` to Project knowledge. Use the included empty starter if no candidate has been approved yet.
+4. Start one new Project chat for each interview.
+5. Open that same Project chat on mobile and use voice as above.
 
-Do not use a local Cowork Project as the only setup. Cowork projects are desktop-local and do not provide the same cloud Project on mobile.
+Do not use a local Cowork Project as the only home. Use a regular cloud Project for the cross-device workflow.
 
-The Project instructions and knowledge file deliberately duplicate the essential Skill behavior. That fallback is what keeps the interview usable across devices even if the Skill is not invoked on a particular surface.
+## Optional Skill
 
-## Use it on your phone
+The Skill is convenient after the basic workflow makes sense. It is not required for mobile voice or the cloud Project.
 
-1. Open Claude Mobile with the same account.
-2. Open the cloud `My GRC Judgment` Project.
-3. Start a new Project chat and enter voice mode.
-4. Say `Interview me about how I make GRC decisions` or `Run a GRC job interview for this role`.
-5. When ready, say `Close and process`.
-6. Wait until Claude confirms that both Markdown outputs are complete before ending voice mode.
+1. Confirm that `Code execution and file creation` and Skills are enabled in Claude settings.
+2. Open `Customize > Skills`.
+3. Choose `Create skill > Upload a skill`.
+4. Upload `OPTIONAL_HEURISTICS_LAYER_SKILL.zip`.
+5. Enable the Skill.
 
-## Return to your laptop
+## If Claude reports a JUDGMENT_REPOSITORY error
 
-Open the completed chat. Ask Claude to create the session packet and proposed judgment-library changes as two downloadable Markdown files. Review candidates before approving them, then follow `JUDGMENT_REPOSITORY.md` to maintain the private library.
+Stop asking Claude to locate the file. It is not a runtime dependency.
+
+Read `JUDGMENT_REPOSITORY.md` yourself when you are ready to save the two outputs. Upload it only if you want Claude to help organize or update your private library. The corrected optional Skill also contains its own repository reference.
+
+Use a private Google Drive folder or private local folder as the source of record. Keep session packets, proposed changes, and the approved `JUDGMENT_LIBRARY.md` separate.

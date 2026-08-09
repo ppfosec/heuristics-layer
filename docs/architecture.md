@@ -7,7 +7,7 @@ core protocols
     |
     +-- ChatGPT Project package
     |
-    +-- Claude skill + cloud Project package
+    +-- Claude chat/Project package + optional skill
 
 voice conversation
     -> session packet + proposed library changes

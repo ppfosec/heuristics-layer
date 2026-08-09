@@ -2,6 +2,8 @@
 
 The fastest tested path is one ordinary ChatGPT chat. Set it up on desktop or web, open that same chat on your phone, and start talking.
 
+First, extract the downloaded `heuristics-layer-chatgpt-v0.2.0.zip` into a normal folder. Open `START_HERE.md` from that folder.
+
 ## What you need
 
 - A paid ChatGPT plan, ChatGPT desktop or web, and the current ChatGPT Mobile app.
@@ -43,7 +45,7 @@ Use this after the first interview if you want to start future interviews withou
 
 1. Create a cloud Project named `My GRC Judgment`.
 2. Copy `PROJECT_INSTRUCTIONS.md` into Project instructions.
-3. Upload `HEURISTICS_LAYER.md` and the current reviewed `JUDGMENT_LIBRARY.md` to Project sources.
+3. Upload `HEURISTICS_LAYER.md` and your current reviewed `JUDGMENT_LIBRARY.md` to Project sources. Use the included empty starter if no candidate has been approved yet.
 4. Start one new Project chat for each interview.
 5. Open the same Project chat on mobile and use voice as above.
 

@@ -4,7 +4,7 @@
 
 Heuristics Layer has one customer workflow with two internal phases: interview, then extraction and evaluation. The user installs on desktop and can interview on mobile or laptop.
 
-For ChatGPT, the fastest first run is one ordinary chat synchronized across desktop and mobile. A cloud Project becomes the reusable home for later interviews. Claude uses a cloud Project from the start. A private Drive or local folder holds the durable Markdown corpus.
+For both ChatGPT and Claude, the fastest first run is one ordinary chat synchronized across desktop and mobile. A cloud Project becomes the reusable home for later interviews. A private Drive or local folder holds the durable Markdown corpus.
 
 Before installing, verify that the empty chat or Project appears on the phone and that voice is enabled there. Account, organization, app-version, and regional controls cannot be repaired by uploading another Markdown file.
 
@@ -22,17 +22,18 @@ Eligible ChatGPT workspaces can install personal Skills, but current Skills docu
 
 ## Claude
 
-1. On desktop, upload and enable the supplied custom skill.
-2. Create `My GRC Judgment` as a regular cloud Claude Project.
-3. Paste the supplied Project instructions and upload the fallback runtime file.
-4. On mobile, open that cloud Project, start a voice chat, and conduct the interview.
-5. Say `close and process`, then return to desktop to review and save the two-file bundle.
+1. On desktop or web, create a regular chat and upload `CLAUDE_INSTRUCTIONS.md` and `HEURISTICS_LAYER.md`.
+2. Confirm the runtime, then open that same chat on mobile.
+3. Conduct the interview by voice without creating another chat.
+4. Say `close and process`, then review and save the two-file bundle.
+5. After the first successful run, create `My GRC Judgment` as a regular cloud Project for reusable instructions and the reviewed library.
+6. Install the custom Skill only if the account-level convenience is useful. It is not required for the interview or Project.
 
 Do not make a local Cowork Project the only home. Remote Cowork sessions may be available on some accounts, but Cowork project data remains a separate, desktop-local surface in the current documentation.
 
-## Why the Project duplicates part of the skill
+## Why the chat or Project duplicates part of the Skill
 
-The skill defines reusable behavior. The Project supplies cross-device state, personal context, prior chats, and a mobile-safe fallback. This small duplication is intentional. The mobile interview must work even when a desktop-only customization surface is absent.
+The Skill defines reusable account-level behavior. The uploaded files supply a visible, cross-device runtime that works even when Skills are disabled, unavailable, or simply confusing. This duplication is intentional. The first interview should not depend on successful Skill installation.
 
 ## Session rhythm
 

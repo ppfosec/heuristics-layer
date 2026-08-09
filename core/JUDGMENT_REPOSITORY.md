@@ -35,7 +35,7 @@ Project knowledge does not automatically turn a Drive file or local file into a 
 2. Save both files in the private repository.
 3. Review every candidate against its excerpts, counterexample, uncertainty, and reversal conditions.
 4. Approve, revise, merge, split, probe, or reject it.
-5. Merge only approved wording into `JUDGMENT_LIBRARY.md`.
+5. Start with the supplied empty `JUDGMENT_LIBRARY.md` and merge only approved wording into it.
 6. Replace the older Project knowledge copy with the reviewed library.
 
 Do not let the model silently promote proposals. Do not place private interviews or the judgment library in the public Heuristics Layer repository.

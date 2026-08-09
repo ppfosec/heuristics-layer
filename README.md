@@ -4,7 +4,7 @@
 
 Heuristics Layer is a voice-first interview and editorial system for experienced Governance, Risk and Compliance practitioners.
 
-Upload it to one chat on your laptop. Open that same chat on your phone. Talk through a difficult vendor decision, policy exception, audit disagreement, control gap, or interview answer while you walk the dog, fold laundry, or stare at the dishes you were definitely going to do earlier. Move into a cloud Project when you want the setup to persist across future interviews.
+Upload it to one ChatGPT or Claude chat on your laptop. Open that same chat on your phone. Talk through a difficult vendor decision, policy exception, audit disagreement, control gap, or interview answer while you walk the dog, fold laundry, or stare at the dishes you were definitely going to do earlier. Move into a cloud Project when you want the setup to persist across future interviews.
 
 The LLM does more than transcribe the conversation. It probes what you noticed, who wanted what, who could block the decision, which evidence changed your confidence, how adoption affected the control, what you chose not to escalate, and how you explained the trade-off. It then challenges its own interpretation and produces reviewable Markdown.
 
@@ -43,6 +43,8 @@ Choose one platform:
 - [Download for Claude](downloads/heuristics-layer-claude-v0.2.0.zip) or [read the setup guide](packages/claude/START_HERE.md)
 
 The platform choices and current cross-device limitations are documented in [Platform notes](docs/PLATFORM_NOTES.md).
+
+Claude's custom Skill is optional. The first interview uses two ordinary uploaded Markdown files so a Skill installation problem cannot block the product.
 
 Paid plans are the primary design target because Project memory, file creation, and desktop work surfaces make the complete loop more useful. If the workflow works on a free plan, good. The product does not contort itself around the weakest surface.
 

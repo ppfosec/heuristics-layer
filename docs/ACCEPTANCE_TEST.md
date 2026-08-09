@@ -16,7 +16,7 @@ The release is not product-complete until a paid ChatGPT user and a paid Claude 
 - Open the same account and source chat or Project on mobile.
 - Start a new voice conversation without uploading or pasting anything.
 - For ChatGPT, continue the same prepared chat and enable background conversations.
-- For Claude, verify the Project fallback works even if the custom Skill is not explicitly invoked.
+- For Claude, verify the same prepared chat works without installing or invoking the optional Skill.
 - Ask for a GRC judgment interview.
 - Complete a substantive interview that the practitioner considers representative. Fifteen minutes is a useful target, not a pass condition.
 - Observe whether the interviewer follows incentives, authority, adoption, organizational history, trade-offs, and communication rather than collecting control facts.
@@ -40,7 +40,7 @@ The release is not product-complete until a paid ChatGPT user and a paid Claude 
 The test fails if:
 
 - mobile requires reinstalling files or instructions;
-- the interview depends on ChatGPT Work, Codex, Claude Cowork, or a separately installed mobile Skill;
+- the interview depends on ChatGPT Work, Codex, Claude Cowork, or an installed Skill;
 - an account or workspace capability is missing and the installer fails to identify it during preflight;
 - the interviewer behaves like a questionnaire;
 - the output mainly summarizes GRC facts;

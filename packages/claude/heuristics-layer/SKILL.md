@@ -26,6 +26,8 @@ When the user says `close and process`, also read:
 - `references/evaluation-protocol.md`
 - `references/output-contract.md`
 
+When the user asks where to save outputs, how to maintain the private library, or how to merge approved candidates, read `references/judgment-repository.md`. Do not require this reference to begin or complete an interview.
+
 ## Run the interview
 
 Start from one concrete decision scene. Ask one primary question at a time in voice mode. Follow cues that reveal judgment instead of completing a questionnaire.
