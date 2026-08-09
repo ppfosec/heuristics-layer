@@ -7,7 +7,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DIST = ROOT / "dist"
+DOWNLOADS = ROOT / "downloads"
 VERSION = (ROOT / "VERSION").read_text(encoding="utf-8").strip()
 
 
@@ -16,7 +16,7 @@ def add_file(archive: zipfile.ZipFile, source: Path, destination: str) -> None:
 
 
 def build_chatgpt() -> Path:
-    output = DIST / f"heuristics-layer-chatgpt-v{VERSION}.zip"
+    output = DOWNLOADS / f"heuristics-layer-chatgpt-v{VERSION}.zip"
     package = ROOT / "packages" / "chatgpt"
     with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED) as archive:
         for name in ("START_HERE.md", "PROJECT_INSTRUCTIONS.md", "HEURISTICS_LAYER.md"):
@@ -36,7 +36,7 @@ def build_claude_skill(destination: Path) -> None:
 
 
 def build_claude() -> Path:
-    output = DIST / f"heuristics-layer-claude-v{VERSION}.zip"
+    output = DOWNLOADS / f"heuristics-layer-claude-v{VERSION}.zip"
     package = ROOT / "packages" / "claude"
     with tempfile.TemporaryDirectory() as temporary_directory:
         skill_zip = Path(temporary_directory) / "heuristics-layer-skill.zip"
@@ -60,15 +60,15 @@ def sha256(path: Path) -> str:
 
 
 def main() -> None:
-    DIST.mkdir(exist_ok=True)
+    DOWNLOADS.mkdir(exist_ok=True)
 
     archives = [build_chatgpt(), build_claude()]
     checksums = "\n".join(f"{sha256(path)}  {path.name}" for path in archives) + "\n"
-    (DIST / "SHA256SUMS.txt").write_text(checksums, encoding="utf-8")
+    (DOWNLOADS / "SHA256SUMS.txt").write_text(checksums, encoding="utf-8")
 
     for path in archives:
         print(f"built {path.relative_to(ROOT)}")
-    print("built dist/SHA256SUMS.txt")
+    print("built downloads/SHA256SUMS.txt")
 
 
 if __name__ == "__main__":

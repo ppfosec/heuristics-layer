@@ -138,10 +138,10 @@ def validate_zip(path: Path, expected: set[str], failures: list[str]) -> None:
             )
 
 
-def validate_dist(failures: list[str]) -> None:
-    dist = ROOT / "dist"
-    chatgpt = dist / f"heuristics-layer-chatgpt-v{VERSION}.zip"
-    claude = dist / f"heuristics-layer-claude-v{VERSION}.zip"
+def validate_downloads(failures: list[str]) -> None:
+    downloads = ROOT / "downloads"
+    chatgpt = downloads / f"heuristics-layer-chatgpt-v{VERSION}.zip"
+    claude = downloads / f"heuristics-layer-claude-v{VERSION}.zip"
     validate_zip(chatgpt, CHATGPT_CONTENTS, failures)
     validate_zip(claude, CLAUDE_CONTENTS, failures)
 
@@ -156,27 +156,27 @@ def validate_dist(failures: list[str]) -> None:
                             failures,
                         )
 
-    checksum = dist / "SHA256SUMS.txt"
+    checksum = downloads / "SHA256SUMS.txt"
     if not checksum.is_file() or len(checksum.read_text(encoding="utf-8").splitlines()) != 2:
         fail("SHA256SUMS.txt must contain exactly two archive checksums", failures)
 
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--dist", action="store_true", help="also validate built release archives")
+    parser.add_argument("--downloads", action="store_true", help="also validate downloadable release archives")
     args = parser.parse_args()
 
     failures: list[str] = []
     validate_source(failures)
-    if args.dist:
-        validate_dist(failures)
+    if args.downloads:
+        validate_downloads(failures)
 
     if failures:
         for message in failures:
             print(f"FAIL: {message}")
         return 1
 
-    scope = "source and release archives" if args.dist else "source"
+    scope = "source and downloadable archives" if args.downloads else "source"
     print(f"validated {scope} for v{VERSION}")
     return 0
 

@@ -17,4 +17,4 @@ jobs:
           python-version: "3.12"
       - run: python scripts/validate.py
       - run: python scripts/build_release.py
-      - run: python scripts/validate.py --dist
+      - run: python scripts/validate.py --downloads

@@ -39,8 +39,8 @@ Laptop interviews work. Mobile voice is the point: no uploading files, rebuildin
 
 Choose one platform:
 
-- [Set up ChatGPT](packages/chatgpt/START_HERE.md)
-- [Set up Claude](packages/claude/START_HERE.md)
+- [Download for ChatGPT](downloads/heuristics-layer-chatgpt-v0.2.0.zip) or [read the setup guide](packages/chatgpt/START_HERE.md)
+- [Download for Claude](downloads/heuristics-layer-claude-v0.2.0.zip) or [read the setup guide](packages/claude/START_HERE.md)
 
 The platform choices and current cross-device limitations are documented in [Platform notes](docs/PLATFORM_NOTES.md).
 
@@ -108,7 +108,7 @@ The product itself does not require a CLI. Maintainers can build and validate th
 ```bash
 python scripts/validate.py
 python scripts/build_release.py
-python scripts/validate.py --dist
+python scripts/validate.py --downloads
 ```
 
 ## Project status

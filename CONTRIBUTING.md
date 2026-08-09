@@ -9,7 +9,7 @@ Before opening a change:
 ```bash
 python scripts/validate.py
 python scripts/build_release.py
-python scripts/validate.py --dist
+python scripts/validate.py --downloads
 ```
 
 Use fictional or thoroughly sanitized GRC examples. Never contribute raw customer, employee, vendor, or employer material.
