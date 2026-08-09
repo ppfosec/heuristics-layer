@@ -4,7 +4,7 @@
 
 Heuristics Layer is a voice-first interview and editorial system for experienced Governance, Risk and Compliance practitioners.
 
-Set it up once on your laptop. Open the same Project on your phone. Talk through a difficult vendor decision, policy exception, audit disagreement, control gap, or interview answer while you walk the dog, fold laundry, or stare at the dishes you were definitely going to do earlier.
+Upload it to one chat on your laptop. Open that same chat on your phone. Talk through a difficult vendor decision, policy exception, audit disagreement, control gap, or interview answer while you walk the dog, fold laundry, or stare at the dishes you were definitely going to do earlier. Move into a cloud Project when you want the setup to persist across future interviews.
 
 The LLM does more than transcribe the conversation. It probes what you noticed, who wanted what, who could block the decision, which evidence changed your confidence, how adoption affected the control, what you chose not to escalate, and how you explained the trade-off. It then challenges its own interpretation and produces reviewable Markdown.
 
@@ -68,7 +68,7 @@ Domain facts are evidence. The product is the practitioner’s way of navigating
 
 ## What a completed interview produces
 
-Each session produces a Markdown packet with:
+Each session produces two reviewable Markdown files: a session packet and proposed judgment-library changes. Together they include:
 
 - the decision scene;
 - facts, claims, and unknowns;
@@ -80,6 +80,8 @@ Each session produces a Markdown packet with:
 - unresolved questions;
 - proposed changes to the private judgment library;
 - job-interview feedback when using rehearsal mode.
+
+Approved candidates move into a separate private `JUDGMENT_LIBRARY.md`. The model can propose the edit. The practitioner decides whether it becomes part of the library.
 
 See the [synthetic example](examples/ai-vendor-plan/session-packet.md). It demonstrates the output shape, not Pierre-Paul Ferland’s actual expert corpus.
 
@@ -102,6 +104,8 @@ The practitioner owns the library. A plausible paragraph is not provenance.
 Raw interviews and the resulting judgment library are private by default. This public repository contains the method, installation packs, and synthetic examples. It does not contain Pierre-Paul’s accumulated GRC corpus.
 
 Read the [privacy boundary](core/PRIVACY.md) before using company or customer examples.
+
+Use the [private judgment repository guide](core/JUDGMENT_REPOSITORY.md) to keep session evidence, proposed changes, and the reviewed library separate.
 
 ## Build the release packages
 

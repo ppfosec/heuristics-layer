@@ -10,7 +10,7 @@ core protocols
     +-- Claude skill + cloud Project package
 
 voice conversation
-    -> session packet
+    -> session packet + proposed library changes
     -> expert review
     -> private judgment library
     -> later LLM use
@@ -26,4 +26,4 @@ Repository code packages ZIP files and validates required files, skill metadata,
 
 ## Public and private material
 
-The repository ships public protocols and fictional examples. Raw transcripts, private session packets, and the approved judgment library remain in the user’s selected account and storage.
+The repository ships public protocols and fictional examples. Raw transcripts, private session packets, proposed changes, and the approved judgment library remain in the user’s selected account and storage.

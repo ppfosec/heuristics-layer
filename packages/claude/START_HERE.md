@@ -45,8 +45,8 @@ The Project instructions and knowledge file deliberately duplicate the essential
 3. Start a new Project chat and enter voice mode.
 4. Say `Interview me about how I make GRC decisions` or `Run a GRC job interview for this role`.
 5. When ready, say `Close and process`.
-6. Wait until Claude confirms that the session packet is complete before ending voice mode.
+6. Wait until Claude confirms that both Markdown outputs are complete before ending voice mode.
 
 ## Return to your laptop
 
-Open the completed chat. Ask Claude to create the Markdown session packet as a downloadable file and show the proposed judgment-library changes. Review candidates before approving them.
+Open the completed chat. Ask Claude to create the session packet and proposed judgment-library changes as two downloadable Markdown files. Review candidates before approving them, then follow `JUDGMENT_REPOSITORY.md` to maintain the private library.

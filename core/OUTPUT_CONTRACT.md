@@ -1,14 +1,14 @@
 # Output contract
 
-Every completed interview produces one self-contained session packet. A later desktop curation pass may update the durable judgment library.
+Every completed interview produces a two-file review bundle. The session packet preserves the case and evaluation. The proposal file isolates the candidate changes that may later be reviewed against the durable judgment library.
 
-Return the packet inline or as a downloadable chat attachment by default. A suggested filename is not permission to write into a local folder, repository, Project file area, or external service. Save there only after the user explicitly chooses the destination.
+Return both files inline or as downloadable chat attachments by default. A suggested filename is not permission to write into a local folder, repository, Project file area, or external service. Save there only after the user explicitly chooses the destination.
 
 ## Session packet
 
 Suggested filename:
 
-`sessions/YYYY-MM-DD-short-topic.md`
+`YYYY-MM-DD-short-topic-session-packet.md`
 
 Use these sections:
 
@@ -61,11 +61,54 @@ Use these sections:
 ## Questions for the next interview
 
 ## Proposed library changes
-[Add, revise, merge, or leave unchanged. Nothing becomes approved automatically.]
+[Summarize the separate proposal file. Nothing becomes approved automatically.]
 
 ## Interview feedback
 [Include only for job-rehearsal mode.]
 ```
+
+The headings may be adapted for readability, but the evidence fields are mandatory. Every candidate needs explicit supporting excerpts, uncertainty, a counterexample, exceptions or reversal conditions, and a recommended disposition. The evaluation must address all eight qualitative dimensions with short rationales. Structure is an evidence control, not a substitute for interpretation.
+
+## Proposed judgment-library changes
+
+Suggested filename:
+
+`YYYY-MM-DD-short-topic-proposed-library-changes.md`
+
+Use these sections:
+
+```markdown
+# Proposed judgment-library changes: [topic]
+
+## Source session
+- Session packet:
+- Source chat:
+- Privacy: private | sanitized
+
+## Change summary
+| Candidate | Proposed action | Evidence state | Principal limitation |
+
+## Proposed candidates
+### [candidate-id]: [title]
+- Status: candidate | needs-clarification
+- Proposed action: add | revise | probe | merge | split | reject
+- Use when:
+- Notice:
+- Understand:
+- Do:
+- Adapt for people:
+- Do not apply when:
+- What would change this judgment:
+- Supporting excerpts:
+- Uncertainty:
+- Provenance:
+
+## Promotion criteria
+
+## Recommended review order
+```
+
+If the interview supports no defensible candidate, still create the proposal file. State `No proposed library change` and explain why. This makes abstention reviewable.
 
 ## Durable judgment library
 

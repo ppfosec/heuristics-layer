@@ -6,7 +6,9 @@
 - Focused the method on GRC operating judgment, stakeholder incentives, adoption, organizational history, relationships, and trade-offs.
 - Added ChatGPT Project and Claude Skill plus cloud Project distributions.
 - Added `close and process` as the explicit transition from interview to LLM-led extraction, challenge, and evaluation.
-- Added clear session-packet and durable-library outputs.
+- Added a two-file review bundle: the evidence-bearing session packet and portable proposed judgment-library changes.
+- Added a private judgment-repository guide for Google Drive or local storage and reviewed-library synchronization.
+- Documented the tested ChatGPT single-chat fast path and mobile-to-desktop file-regeneration limitation.
 - Added platform preflight checks for mobile Project visibility, voice, file creation, workspace controls, and background conversations.
 - Added a live paid-account acceptance record and a no-silent-write release gate.
 - Removed the npm package, CLI, synthetic model provider, retrieval runtime, deterministic reasoner, and numerical evaluation pipeline.

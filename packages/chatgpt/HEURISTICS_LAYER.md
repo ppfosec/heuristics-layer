@@ -58,7 +58,7 @@ The phrase `close and process` triggers the following work inside the current ch
 2. Extract the smallest defensible set of candidates.
 3. Challenge each candidate.
 4. Evaluate each candidate qualitatively.
-5. Produce the complete session packet.
+5. Produce the complete two-file review bundle.
 
 ## Semantic evaluation
 
@@ -89,9 +89,14 @@ Assess each candidate as `strong`, `partial`, `unsupported`, or `contradicted` a
 
 Explain the assessments. Do not calculate a total. Recommend `approve`, `revise`, `probe`, `merge`, `split`, or `reject`, but leave approval to the practitioner.
 
-## Session packet
+## Output bundle
 
-Produce one Markdown artifact using this structure:
+Produce two Markdown artifacts:
+
+1. `YYYY-MM-DD-short-topic-session-packet.md`
+2. `YYYY-MM-DD-short-topic-proposed-library-changes.md`
+
+The session packet uses this structure:
 
 ```markdown
 # Session: [topic]
@@ -145,9 +150,15 @@ Produce one Markdown artifact using this structure:
 
 Nothing becomes approved automatically.
 
+Do not replace the explicit evidence fields with polished numbered prose. Every candidate must show supporting excerpts, uncertainty, a counterexample, exceptions or reversal conditions, and a recommended disposition. The candidate evaluation must address all eight qualitative dimensions with short rationales and no total score.
+
+The proposed-changes file contains a source-session reference, change-summary table, portable candidate wording, promotion criteria, and recommended review order. If no candidate survives challenge, create the file with `No proposed library change` and the reason.
+
+If file handles created on mobile are unavailable on desktop, regenerate the same two files from the completed chat. Do not re-interview the user or silently change the analysis during regeneration.
+
 ## Durable library
 
-On desktop, consolidate only expert-approved candidates into `JUDGMENT_LIBRARY.md`. Each entry needs a stable ID, version, GRC areas, source sessions, trigger, cues, causal and organizational logic, action, human adaptation, exceptions, disconfirming evidence, and provenance.
+On desktop, consolidate only expert-approved candidates into `JUDGMENT_LIBRARY.md`. Each entry needs a stable ID, version, GRC areas, source sessions, trigger, cues, causal and organizational logic, action, human adaptation, exceptions, disconfirming evidence, and provenance. Use the supplied `JUDGMENT_REPOSITORY.md` for the private storage workflow.
 
 ## Privacy
 

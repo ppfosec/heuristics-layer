@@ -1,57 +1,69 @@
-# Install Heuristics Layer in ChatGPT
+# Use Heuristics Layer in ChatGPT
 
-Set this up once on your laptop. After that, open the same Project on your phone and start talking.
+The fastest tested path is one ordinary ChatGPT chat. Set it up on desktop or web, open that same chat on your phone, and start talking.
 
 ## What you need
 
-- A paid ChatGPT plan. Projects are broadly available, but this product is designed around the stronger paid-plan context and file experience.
-- ChatGPT desktop or web for setup and the current ChatGPT Mobile app for the interview.
-- Voice enabled for your account and workspace. A Business, Enterprise, Edu, or Healthcare administrator can disable it.
-
-Use a regular chat inside the cloud Project for the interview. No separate agentic desktop surface is required.
+- A paid ChatGPT plan, ChatGPT desktop or web, and the current ChatGPT Mobile app.
+- The same account and workspace signed in on both devices.
+- Voice enabled for your account and workspace.
+- Permission to process the material you discuss.
 
 ## Sixty-second preflight
 
 Before uploading anything private:
 
-1. Create an empty cloud Project and confirm that it appears on your phone under the same account and workspace.
-2. Start a regular Project chat on the phone and confirm that the voice control is available.
-3. In Mobile settings, turn on `Background conversations` if you want to keep talking while doing chores or while the phone is locked.
-4. In a personal workspace, review `Settings > Data Controls`. Voice transcripts and files may be used according to your plan and settings. Business, Enterprise, Edu, and Healthcare workspaces have different data controls.
+1. Start an empty chat on desktop or web and confirm that the same chat appears on your phone.
+2. Open it on the phone and confirm that the voice control is available.
+3. Turn on `Background conversations` in Mobile settings if you want to keep talking while doing chores or while the phone is locked.
+4. In a personal workspace, review `Settings > Data Controls`. Voice transcripts and files are handled according to your plan and settings.
 
-If the Project or voice control is missing, update the mobile app and check workspace permissions before continuing. Installing more files will not repair an account-level restriction.
+If the chat or voice control is missing, update the app and check workspace permissions. Uploading another Markdown file will not repair an account-level restriction.
 
-## Five-minute setup
+## Fast path: one interview chat
 
-1. In ChatGPT, create a cloud Project named `My GRC Judgment`.
-2. Open Project settings.
-3. Copy the complete contents of `PROJECT_INSTRUCTIONS.md` into the Project instructions field.
-4. Upload `HEURISTICS_LAYER.md` to the Project sources.
-5. Optionally upload your résumé, a GRC job description, or sanitized background notes. Do not upload confidential material you are not authorized to process.
-6. Start a new Project chat and say: `Confirm that Heuristics Layer is ready. Do not begin an interview yet.`
+1. On desktop or web, start a new regular chat.
+2. Upload `PROJECT_INSTRUCTIONS.md` and `HEURISTICS_LAYER.md`.
+3. Say:
 
-## Use it on your phone
+   > Read both uploaded files. Treat `PROJECT_INSTRUCTIONS.md` as the operating instructions for this chat and use `HEURISTICS_LAYER.md` as the complete protocol. Confirm that Heuristics Layer is ready. Do not begin the interview yet.
 
-1. Open ChatGPT Mobile with the same account and workspace.
-2. Open `My GRC Judgment`.
-3. Start a new regular chat inside the Project.
-4. Turn on voice.
-5. Say one of:
+4. Optionally upload a résumé, GRC role description, or sanitized background notes.
+5. Open that same chat in ChatGPT Mobile. Do not start a second chat.
+6. Turn on voice and say:
+
    - `Interview me about how I make GRC decisions.`
    - `Run a GRC job interview for this role.`
 
-When ChatGPT says it has enough evidence, choose whether to probe the remaining gaps. When ready, say:
+When ready, say `Close and process`. Wait until ChatGPT confirms that both Markdown outputs are complete before ending voice mode.
 
-> Close and process.
+## Reusable path: a cloud Project
 
-Wait for ChatGPT to confirm that the session packet is complete before ending voice mode.
+Use this after the first interview if you want to start future interviews without uploading the runtime again.
 
-## Return to your laptop
+1. Create a cloud Project named `My GRC Judgment`.
+2. Copy `PROJECT_INSTRUCTIONS.md` into Project instructions.
+3. Upload `HEURISTICS_LAYER.md` and the current reviewed `JUDGMENT_LIBRARY.md` to Project sources.
+4. Start one new Project chat for each interview.
+5. Open the same Project chat on mobile and use voice as above.
 
-Open the completed chat in the same Project. Ask:
+The Project is the reusable home. The single-chat path is the quickest way to prove the workflow before building a private corpus.
 
-> Create the Markdown session packet as a downloadable file, then show me the proposed changes to my judgment library.
+## Recover the files on desktop
 
-Review candidates before approving them. Periodically ask a normal text chat in the Project to consolidate approved candidates into `JUDGMENT_LIBRARY.md`.
+ChatGPT's mobile file sandbox may create attachments that are downloadable on the phone but do not remain downloadable when the chat is opened on desktop. The first live acceptance run hit this limitation.
 
-ChatGPT voice transcripts may differ slightly from the spoken exchange. Treat the transcript as evidence to review, not a courtroom record.
+You have two options:
+
+1. Download both files on the phone and move them to your private storage.
+2. Reopen the completed chat on desktop in ChatGPT Work and say:
+
+   > Regenerate the two completed Markdown outputs from this chat as downloadable desktop files. Create the session packet and the proposed judgment-library changes file. Do not re-interview me, add new candidates, or change the analysis.
+
+Regeneration is a file handoff, not a second evaluation pass. Compare the regenerated files with the visible chat before saving them.
+
+## Keep the heuristics somewhere durable
+
+Use `JUDGMENT_REPOSITORY.md` to create a private Google Drive folder or private local folder for session packets, proposals, and the approved `JUDGMENT_LIBRARY.md`. Do not use the public product repository for private interviews.
+
+ChatGPT voice transcripts may differ from the spoken exchange. Treat transcript excerpts as evidence to review, not a courtroom record.

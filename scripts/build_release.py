@@ -22,6 +22,7 @@ def build_chatgpt() -> Path:
         for name in ("START_HERE.md", "PROJECT_INSTRUCTIONS.md", "HEURISTICS_LAYER.md"):
             add_file(archive, package / name, name)
         add_file(archive, ROOT / "core" / "PRIVACY.md", "PRIVACY.md")
+        add_file(archive, ROOT / "core" / "JUDGMENT_REPOSITORY.md", "JUDGMENT_REPOSITORY.md")
         add_file(archive, ROOT / "LICENSE", "LICENSE")
     return output
 
@@ -47,6 +48,7 @@ def build_claude() -> Path:
             add_file(archive, package / "project" / "HEURISTICS_LAYER.md", "project/HEURISTICS_LAYER.md")
             add_file(archive, skill_zip, "heuristics-layer-skill.zip")
             add_file(archive, ROOT / "core" / "PRIVACY.md", "PRIVACY.md")
+            add_file(archive, ROOT / "core" / "JUDGMENT_REPOSITORY.md", "JUDGMENT_REPOSITORY.md")
             add_file(archive, ROOT / "LICENSE", "LICENSE")
     return output
 

@@ -40,11 +40,13 @@ Do not rely on the user ending the voice interface as an automation trigger.
 
 ## Process the interview
 
-When the user says `close and process`, stop asking interview questions. Reconstruct the decision, propose the smallest defensible set of candidate heuristics, challenge every candidate, evaluate them qualitatively, and produce the session packet.
+When the user says `close and process`, stop asking interview questions. Reconstruct the decision, propose the smallest defensible set of candidate heuristics, challenge every candidate, evaluate them qualitatively, and produce the two-file review bundle.
 
 Never approve inferred knowledge automatically. Recommend a disposition and leave approval to the expert.
 
-If file creation is available in the chat, create one downloadable Markdown session packet. Otherwise, provide one complete copyable Markdown block. Do not write into a local folder, repository, Project file area, Drive, or another destination unless the user explicitly chooses that destination. Ask whether the user wants to review candidates now or return later on desktop.
+Every candidate must explicitly include supporting excerpts, uncertainty, a counterexample, exceptions or reversal conditions, and a recommended disposition. Evaluate all eight qualitative dimensions with short rationales and no total score.
+
+If file creation is available in the chat, create two downloadable Markdown files: the session packet and proposed judgment-library changes. Otherwise, provide two complete copyable Markdown blocks. Do not write into a local folder, repository, Project file area, Drive, or another destination unless the user explicitly chooses that destination. Ask whether the user wants to review candidates now or return later on desktop.
 
 ## Protect private material
 

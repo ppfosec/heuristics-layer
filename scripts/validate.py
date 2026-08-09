@@ -17,6 +17,7 @@ REQUIRED_SOURCE_FILES = [
     "core/GRC_JUDGMENT_MODEL.md",
     "core/OUTPUT_CONTRACT.md",
     "core/PRIVACY.md",
+    "core/JUDGMENT_REPOSITORY.md",
     "packages/chatgpt/START_HERE.md",
     "packages/chatgpt/PROJECT_INSTRUCTIONS.md",
     "packages/chatgpt/HEURISTICS_LAYER.md",
@@ -29,6 +30,7 @@ REQUIRED_SOURCE_FILES = [
     "packages/claude/heuristics-layer/references/evaluation-protocol.md",
     "packages/claude/heuristics-layer/references/output-contract.md",
     "examples/ai-vendor-plan/session-packet.md",
+    "examples/ai-vendor-plan/proposed-library-changes.md",
     "docs/LIVE_ACCEPTANCE_RECORD.md",
 ]
 
@@ -37,6 +39,7 @@ CHATGPT_CONTENTS = {
     "PROJECT_INSTRUCTIONS.md",
     "HEURISTICS_LAYER.md",
     "PRIVACY.md",
+    "JUDGMENT_REPOSITORY.md",
     "LICENSE",
 }
 
@@ -46,6 +49,7 @@ CLAUDE_CONTENTS = {
     "project/HEURISTICS_LAYER.md",
     "heuristics-layer-skill.zip",
     "PRIVACY.md",
+    "JUDGMENT_REPOSITORY.md",
     "LICENSE",
 }
 
@@ -113,6 +117,12 @@ def validate_source(failures: list[str]) -> None:
         if "do not write into a local folder" not in text:
             fail(f"missing explicit file-write boundary: {path.relative_to(ROOT)}", failures)
 
+    for path in product_files:
+        text = path.read_text(encoding="utf-8").lower()
+        for phrase in ("two-file", "supporting excerpts", "eight qualitative dimensions"):
+            if phrase not in text:
+                fail(f"customer runtime missing two-file evidence contract ({phrase}): {path.relative_to(ROOT)}", failures)
+
     for path in (ROOT / "packages").rglob("*.md"):
         if "codex" in path.read_text(encoding="utf-8").lower():
             fail(f"customer package must not mention Codex: {path.relative_to(ROOT)}", failures)
@@ -120,9 +130,14 @@ def validate_source(failures: list[str]) -> None:
     chatgpt_start = (ROOT / "packages" / "chatgpt" / "START_HERE.md").read_text(encoding="utf-8").lower()
     if "same account and workspace" not in chatgpt_start or "turn on voice" not in chatgpt_start:
         fail("ChatGPT guide must cover the cross-device voice handoff", failures)
-    for phrase in ("regular chat inside the cloud project", "background conversations", "data controls"):
+    for phrase in ("same chat appears on your phone", "background conversations", "data controls", "mobile file sandbox", "chatgpt work", "two completed markdown outputs"):
         if phrase not in chatgpt_start:
-            fail(f"ChatGPT guide missing platform preflight: {phrase}", failures)
+            fail(f"ChatGPT guide missing tested workflow or limitation: {phrase}", failures)
+
+    chatgpt_runtime = (ROOT / "packages" / "chatgpt" / "HEURISTICS_LAYER.md").read_text(encoding="utf-8").lower()
+    for phrase in ("two-file review bundle", "supporting excerpts", "all eight qualitative dimensions", "regenerate the same two files"):
+        if phrase not in chatgpt_runtime:
+            fail(f"ChatGPT runtime missing output-contract safeguard: {phrase}", failures)
 
     claude_start = (ROOT / "packages" / "claude" / "START_HERE.md").read_text(encoding="utf-8").lower()
     if "cowork" not in claude_start or "same account" not in claude_start:

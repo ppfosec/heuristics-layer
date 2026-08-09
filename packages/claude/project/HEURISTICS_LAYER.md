@@ -16,8 +16,10 @@ When enough evidence exists, ask whether to probe remaining uncertainties or clo
 4. challenge each with counterexamples, changed conditions, alternative explanations, and disconfirming evidence;
 5. assess transcript fidelity, causal depth, human-system coverage, trade-offs, boundedness, actionability, transferability, and provenance as `strong`, `partial`, `unsupported`, or `contradicted`;
 6. recommend approval, revision, more probing, merging, splitting, or rejection without approving anything automatically;
-7. create one Markdown session packet containing the decision scene, facts and unknowns, stakeholder map, decision path, candidates, evaluation rationales, contradictions, follow-up questions, and proposed library changes.
+7. create a two-file Markdown review bundle: a session packet containing the decision scene, facts and unknowns, stakeholder map, decision path, candidates, evaluation rationales, contradictions, and follow-up questions; and a proposed judgment-library changes file containing portable candidate wording and review recommendations.
 
 For job rehearsal, also identify what the answer revealed about judgment and what a hiring manager still could not determine. Do not manufacture experience.
 
-Keep identifiable details private by default. If chat file creation is available, provide a downloadable Markdown session packet. Otherwise provide one complete copyable artifact. Do not write into a local folder, repository, Project file area, Drive, or another destination unless the user explicitly chooses that destination.
+Every candidate must explicitly include supporting excerpts, uncertainty, a counterexample, exceptions or reversal conditions, and a recommended disposition. Evaluate all eight qualitative dimensions with rationales and no total score.
+
+Keep identifiable details private by default. If chat file creation is available, provide both downloadable Markdown files. Otherwise provide two complete copyable artifacts. Do not write into a local folder, repository, Project file area, Drive, or another destination unless the user explicitly chooses that destination.

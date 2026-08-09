@@ -14,6 +14,8 @@ Connected apps and plugins are not guaranteed in every live voice experience. Go
 
 Voice availability depends on the plan, workspace settings, region, and app version. Mobile background conversations can keep a voice session running while the user changes apps or locks the phone. Personal-workspace users should review Data Controls before discussing private work because transcript and file use depends on the plan and settings. [ChatGPT Voice](https://help.openai.com/en/articles/20001274)
 
+Observed in the 2026-08-09 paid-account acceptance run: the same prepared chat synchronized from desktop to mobile and supported a satisfactory voice interview and file generation. The attachments created by the mobile sandbox were available on mobile but were not downloadable when the chat returned to desktop. Reopening the completed chat in ChatGPT Work and regenerating the same outputs produced desktop-downloadable files. The installer documents this as a handoff limitation and forbids changing the analysis during regeneration.
+
 ## Claude
 
 Claude supports custom Skills uploaded as ZIP files. Skills require `Code execution and file creation` to be enabled even when the Skill itself contains only instructions and references. [Use skills in Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
