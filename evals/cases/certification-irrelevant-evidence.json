@@ -1,0 +1,12 @@
+{
+  "id": "EVAL-TPRM-001",
+  "task": "Assess whether the supplied assurance closes the technical question.",
+  "context": "A vendor cites a SOC 2 report when asked whether support personnel can access production customer data. The report scope lists the corporate IT environment but not the hosted product.",
+  "evidence": ["Vendor assertion", "SOC 2 scope statement"],
+  "expectedExpertConsiderations": ["Service and control scope", "Audit period", "Relevant exceptions", "Evidence confidence versus underlying risk"],
+  "likelyNoviceMistake": "Treating SOC 2 as a general security verdict.",
+  "relevantHeuristics": ["evidence.certification_scope"],
+  "requiredConcepts": ["scope", "service", "control", "period", "uncertainty"],
+  "forbiddenClaims": ["soc 2 proves the vendor is secure"],
+  "rubric": ["Discriminates relevant from irrelevant evidence", "Asks a control-specific follow-up", "Does not invent report coverage"]
+}

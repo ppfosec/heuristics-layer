@@ -1,0 +1,11 @@
+node_modules/
+dist/
+coverage/
+.heuristics/
+.heuristics-demo/
+.heuristics-demo*/
+.pack-test/
+*.log
+.env
+.env.*
+!.env.example

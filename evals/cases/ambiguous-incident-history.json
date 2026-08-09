@@ -1,0 +1,12 @@
+{
+  "id": "EVAL-TPRM-005",
+  "task": "Assess an ambiguous incident-history answer.",
+  "context": "The vendor answers 'no material incidents' but does not define material, provide a time period, or distinguish security events from reportable breaches.",
+  "evidence": ["Questionnaire answer"],
+  "expectedExpertConsiderations": ["Definition of material", "Time boundary", "Event taxonomy", "Customer impact", "Disclosure threshold"],
+  "likelyNoviceMistake": "Recording the answer as 'no incidents.'",
+  "relevantHeuristics": [],
+  "requiredConcepts": ["definition", "period", "threshold", "uncertainty"],
+  "forbiddenClaims": ["the vendor has never had an incident"],
+  "rubric": ["Preserves ambiguity", "Asks bounded follow-ups", "Avoids converting wording into a fact"]
+}

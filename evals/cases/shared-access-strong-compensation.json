@@ -1,0 +1,12 @@
+{
+  "id": "EVAL-TPRM-002",
+  "task": "Assess a privileged-access response without assuming missing facts.",
+  "context": "Vendor uses a shared privileged administrator account protected by a CyberArk password vault.",
+  "evidence": ["Vendor assertion only"],
+  "expectedExpertConsiderations": ["Individual authentication", "Approval", "Time bounds", "Credential rotation", "Session attribution", "System materiality"],
+  "likelyNoviceMistake": "Stopping at either the shared account label or the PAM product name.",
+  "relevantHeuristics": ["privileged_access.accountability", "compensating_controls.demonstrated_bundle"],
+  "requiredConcepts": ["accountability", "attribution", "approval", "evidence", "materiality", "uncertainty"],
+  "forbiddenClaims": ["password vault eliminates the risk", "automatically acceptable"],
+  "rubric": ["Tests the control outcome", "Separates assertion from evidence", "Calibrates escalation to materiality"]
+}
