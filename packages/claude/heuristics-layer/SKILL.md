@@ -34,6 +34,8 @@ For `normalize-and-publish`, read both:
 - `references/normalize-and-publish.md`
 - `references/judgment-repository.md`
 
+If the practitioner asks to share an approved heuristic publicly, also read `references/publish-publicly.md`. Treat it as a second approval and publication transaction, never as an automatic consequence of private publication.
+
 If the private repository does not exist, use `assets/private-heuristics-repository/` as the source structure.
 
 ## Run the interview

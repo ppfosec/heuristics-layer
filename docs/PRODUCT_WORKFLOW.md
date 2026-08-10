@@ -4,7 +4,7 @@
 
 Heuristics Layer has one customer workflow with three modes: judgment capture, job rehearsal, and normalize-and-publish. The user installs on desktop, interviews on mobile or laptop, then publishes on a desktop surface with access to the private repository.
 
-For both ChatGPT and Claude, the fastest first interview is one ordinary chat synchronized across desktop and mobile. A cloud Project becomes the reusable interview home. A private local folder is the authoritative corpus.
+For both ChatGPT and Claude, the fastest first interview is one ordinary chat synchronized across desktop and mobile. A cloud Project becomes the reusable interview home. A separate private local folder is the authoritative corpus.
 
 Before installing, verify that the empty chat or Project appears on the phone and that voice is enabled there. Account, organization, app-version, and regional controls cannot be repaired by uploading another Markdown file.
 
@@ -18,7 +18,7 @@ Before installing, verify that the empty chat or Project appears on the phone an
 6. If the mobile-created attachments are not downloadable on desktop, download them on mobile or reopen the same chat in ChatGPT Work and regenerate the two files without changing the analysis.
 7. After the first successful run, create a cloud Project if you want reusable instructions and a working copy of the approved library across future chats.
 8. In ChatGPT Work on desktop, grant access to the private repository folder, add completed interview outputs, and say `normalize and publish`.
-9. Answer substantive approval questions. ChatGPT performs every repository edit.
+9. Answer substantive approval questions. ChatGPT performs every private-repository edit.
 
 If Work or local folder access is unavailable, upload the complete repository ZIP and interview outputs to an ordinary chat. ChatGPT returns one complete replacement repository ZIP after approval.
 
@@ -34,11 +34,15 @@ Eligible ChatGPT workspaces can install the included portable personal Skill. Cu
 6. After the first successful run, create `My GRC Judgment` as a regular cloud Project for reusable instructions and a working copy of the published library.
 7. Install the included portable Skill only if the account-level convenience is useful. It is not required for the interview or Project, and current documentation does not guarantee custom Skill activation inside voice.
 8. In Claude Cowork on desktop, connect the private repository folder, add completed interview outputs, and say `normalize and publish`.
-9. Answer substantive approval questions. Claude performs every repository edit.
+9. Answer substantive approval questions. Claude performs every private-repository edit.
 
 If Cowork or local folder access is unavailable, upload the complete repository ZIP and interview outputs to an ordinary chat. Claude returns one complete replacement repository ZIP after approval.
 
 Do not make a local Cowork Project the only home. Remote Cowork sessions may be available on some accounts, but Cowork project data remains a separate, desktop-local surface in the current documentation.
+
+## Optional public contribution
+
+Private publication finishes first. If the practitioner wants to share a heuristic, the application prepares sanitized public wording in the separate public framework checkout and asks for a second approval. After approval it assigns the public identifier, validates privacy, commits only public-safe files, and opens a pull request. The private repository is never staged or pushed.
 
 ## Why the chat or Project duplicates part of the Skill
 

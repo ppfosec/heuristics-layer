@@ -9,6 +9,8 @@
 - Added a transactional publication contract covering the library, publication log, unresolved queue, intake manifest, processed evidence, and repository state.
 - Added a complete replacement-repository ZIP fallback when the current surface cannot write the selected local folder.
 - Defined ChatGPT Work and Claude Cowork desktop as the local publication surfaces while keeping mobile voice as the interview surface.
+- Added an optional second approval for sanitized contributions to the public heuristic library without exposing private evidence.
+- Validated the no-approval gate and one complete conversationally approved transaction against a real private repository.
 
 ## 0.2.0
 

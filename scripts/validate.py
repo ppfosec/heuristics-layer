@@ -17,6 +17,7 @@ REQUIRED_SOURCE_FILES = [
     "core/EVALUATION_PROTOCOL.md",
     "core/GRC_JUDGMENT_MODEL.md",
     "core/NORMALIZE_AND_PUBLISH.md",
+    "core/PUBLISH_PUBLICLY.md",
     "core/OUTPUT_CONTRACT.md",
     "core/PRIVACY.md",
     "core/JUDGMENT_REPOSITORY.md",
@@ -44,6 +45,10 @@ REQUIRED_SOURCE_FILES = [
     "docs/LIVE_ACCEPTANCE_RECORD.md",
     "docs/V0.3_ACCEPTANCE.md",
     "docs/V0.3_FORWARD_TEST_RECORD.md",
+    "docs/V0.3_LIVE_RESULT.md",
+    "docs/RELEASE_NOTES_V0.3.0.md",
+    "public-library/README.md",
+    "public-library/CONTRIBUTION_TEMPLATE.md",
 ]
 
 CHATGPT_CONTENTS = {
@@ -51,6 +56,7 @@ CHATGPT_CONTENTS = {
     "PROJECT_INSTRUCTIONS.md",
     "HEURISTICS_LAYER.md",
     "NORMALIZE_AND_PUBLISH.md",
+    "PUBLISH_PUBLICLY.md",
     "OPTIONAL_HEURISTICS_LAYER_SKILL.zip",
     "PRIVATE_HEURISTICS_REPOSITORY.zip",
     "PRIVACY.md",
@@ -64,6 +70,7 @@ CLAUDE_CONTENTS = {
     "CLAUDE_INSTRUCTIONS.md",
     "HEURISTICS_LAYER.md",
     "NORMALIZE_AND_PUBLISH.md",
+    "PUBLISH_PUBLICLY.md",
     "OPTIONAL_HEURISTICS_LAYER_SKILL.zip",
     "PRIVATE_HEURISTICS_REPOSITORY.zip",
     "PRIVACY.md",
@@ -85,9 +92,9 @@ REPOSITORY_TEMPLATE_CONTENTS = {
     if source.is_file()
 }
 
-PRIVATE_REPOSITORY_MARKERS = (
-    "PPF-H-",
-    r"C:\ppfer\Heuristics",
+PRIVATE_REPOSITORY_PATTERNS = (
+    ("private stable identifier", re.compile(rb"PPF-H-", flags=re.IGNORECASE)),
+    ("private local Heuristics path", re.compile(rb"[A-Z]:\\[^\\\r\n]+\\Heuristics", flags=re.IGNORECASE)),
 )
 
 
@@ -101,7 +108,7 @@ def validate_source(failures: list[str]) -> None:
             fail(f"missing required file: {relative}", failures)
 
     text_files = list(ROOT.glob("*.md"))
-    for directory in ("core", "docs", "examples", "packages"):
+    for directory in ("core", "docs", "examples", "packages", "public-library"):
         text_files.extend((ROOT / directory).rglob("*.md"))
 
     for path in text_files:
@@ -110,9 +117,10 @@ def validate_source(failures: list[str]) -> None:
             fail(f"unresolved placeholder: {path.relative_to(ROOT)}", failures)
         if "\u2014" in text:
             fail(f"em dash found: {path.relative_to(ROOT)}", failures)
-        for marker in PRIVATE_REPOSITORY_MARKERS:
-            if marker.lower() in text.lower():
-                fail(f"private repository marker found: {path.relative_to(ROOT)}", failures)
+        encoded = text.encode("utf-8")
+        for label, pattern in PRIVATE_REPOSITORY_PATTERNS:
+            if pattern.search(encoded):
+                fail(f"{label} found: {path.relative_to(ROOT)}", failures)
 
     acceptance_record = (ROOT / "docs" / "LIVE_ACCEPTANCE_RECORD.md").read_text(encoding="utf-8")
     for line in acceptance_record.splitlines():
@@ -203,6 +211,21 @@ def validate_source(failures: list[str]) -> None:
         if phrase not in publish_protocol:
             fail(f"normalize-and-publish protocol missing safety contract: {phrase}", failures)
 
+    public_protocol = (ROOT / "core" / "PUBLISH_PUBLICLY.md").read_text(encoding="utf-8").lower()
+    for phrase in ("second publication decision", "private approval does not imply public approval", "hl-p-####", "private-data scan", "pull request", "never stage or commit the private repository"):
+        if phrase not in public_protocol:
+            fail(f"public contribution protocol missing safety contract: {phrase}", failures)
+
+    public_library = (ROOT / "public-library" / "README.md").read_text(encoding="utf-8")
+    public_entries = re.findall(r"^# (HL-P-\d{4}):", public_library, flags=re.MULTILINE)
+    if len(public_entries) != len(set(public_entries)):
+        fail("public library contains duplicate stable identifiers", failures)
+
+    live_result = (ROOT / "docs" / "V0.3_LIVE_RESULT.md").read_text(encoding="utf-8").lower()
+    for phrase in ("seven distinct heuristic candidates", "published exactly one private heuristic", "six candidates remained blocked", "no private publication content", "codex desktop"):
+        if phrase not in live_result:
+            fail(f"v0.3 live result missing acceptance evidence: {phrase}", failures)
+
     template_library = TEMPLATE_ROOT / "library" / "JUDGMENT_LIBRARY.md"
     if not template_library.is_file() or "published heuristic count: 0" not in template_library.read_text(encoding="utf-8").lower():
         fail("private repository template must start with an empty authoritative library", failures)
@@ -246,9 +269,9 @@ def validate_archive_privacy(data: bytes, label: str, failures: list[str]) -> No
                     continue
                 body = archive.read(info)
                 searchable = info.filename.encode("utf-8") + b"\n" + body
-                for marker in PRIVATE_REPOSITORY_MARKERS:
-                    if marker.encode("utf-8").lower() in searchable.lower():
-                        fail(f"private repository marker found in release archive: {label}!{info.filename}", failures)
+                for pattern_label, pattern in PRIVATE_REPOSITORY_PATTERNS:
+                    if pattern.search(searchable):
+                        fail(f"{pattern_label} found in release archive: {label}!{info.filename}", failures)
                 if info.filename.lower().endswith(".zip"):
                     validate_archive_privacy(body, f"{label}!{info.filename}", failures)
     except zipfile.BadZipFile:

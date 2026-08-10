@@ -95,6 +95,8 @@ After explicit approval, complete all of these operations as one transaction:
 8. validate that repository counts and states agree;
 9. report the publication result in the application.
 
+After the private transaction is complete, ask whether the practitioner wants a separate sanitized public contribution. If yes, apply `PUBLISH_PUBLICLY.md`. Do not make public publication a condition of private publication, and do not reuse private approval as public approval.
+
 If any write fails, stop. Do not leave a candidate marked published in only some files. Restore or provide the last internally consistent state and explain the failed operation.
 
 ## Surface fallback

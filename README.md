@@ -35,7 +35,7 @@ You approve meaning and wording in conversation
 The model publishes the complete private library transaction
 ```
 
-Laptop interviews work. Mobile voice is the point: no uploading files, rebuilding prompts, or typing with your thumbs after the initial setup.
+Laptop interviews work. Mobile voice is the point: no rebuilding prompts or typing with your thumbs during the interview. Desktop handles setup, file recovery, and publication.
 
 ## Install
 
@@ -51,6 +51,8 @@ Both downloads include the same optional portable Agent Skill. The first intervi
 Paid plans are the primary design target because Project memory, file creation, and desktop work surfaces make the complete loop more useful. If the workflow works on a free plan, good. The product does not contort itself around the weakest surface.
 
 The downloadable release contains one ZIP for ChatGPT and one for Claude. Each includes the portable Skill and a private-repository template. Setup happens on desktop. Interviews happen in the same cloud Project on mobile or desktop. The preferred publication path uses ChatGPT Work or Claude Cowork with permission to the private local folder. Accounts without local folder access use the complete-ZIP path: upload the current repository and receive one complete replacement repository after approval.
+
+Keep two folders: the public framework checkout and a separate private heuristics repository. Framework updates and explicitly approved sanitized public contributions go to GitHub. Private interviews and evidence stay in the private repository.
 
 Before installing, create an empty Project and confirm that it appears on your phone with voice available. That sixty-second check catches disabled workspace permissions and stale mobile apps before you spend fifteen minutes explaining a procurement fight to a phone that was never listening properly.
 
@@ -95,6 +97,12 @@ The model may recommend `publish`, `revise`, `merge`, `split`, `probe`, `reject`
 
 After approval, the application updates the library, publication log, unresolved queue, intake manifest, processed evidence, and repository state. If the surface cannot write the selected folder, it returns one complete replacement repository ZIP. The user does not become a part-time Markdown migration script.
 
+## Share one publicly
+
+Private publication and public contribution are separate decisions. After a heuristic is safely in the private library, ChatGPT or Claude can prepare a sanitized public version, explain what it removed, and ask for a second approval. Only then may it assign an `HL-P-####` identifier and open a GitHub pull request. The practitioner does not become a part-time Git operator either.
+
+The [public library](public-library/README.md) starts empty in v0.3. The point is to prove the boundary before filling the shelf.
+
 See the [synthetic example](examples/ai-vendor-plan/session-packet.md). It demonstrates the output shape, not Pierre-Paul Ferland’s actual expert corpus.
 
 ## The LLM does the judgment work
@@ -131,6 +139,6 @@ python scripts/validate.py --downloads
 
 ## Project status
 
-Version 0.3 adds the missing publication loop to the tested voice-first product. The interview workflows passed real ChatGPT and Claude runs, and sanitized forward tests passed both publication and no-approval cases. Final v0.3 acceptance requires one real normalize-and-publish transaction against a private repository using the [v0.3 acceptance record](docs/V0.3_ACCEPTANCE.md).
+Version 0.3 adds the missing publication loop to the tested voice-first product. The interview workflows passed real ChatGPT and Claude runs. Sanitized forward tests passed publication and no-approval cases, and one real private-repository transaction passed conversational approval and consistency checks. See the [live result](docs/V0.3_LIVE_RESULT.md) and reusable [acceptance record](docs/V0.3_ACCEPTANCE.md).
 
 Models have knowledge. The work here is making experienced judgment reusable without flattening it into another checklist.

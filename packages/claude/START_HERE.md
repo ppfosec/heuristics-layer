@@ -72,7 +72,7 @@ Before relying on this path, confirm that `Cowork` appears and can connect a loc
 
    > Create my private Heuristics Layer repository inside the connected folder using this template. You own all internal file operations. Do not publish anything yet. Confirm the authoritative library path and repository state when setup is complete.
 
-The practitioner should not extract the repository template, create internal folders, or edit Markdown. Claude performs that setup.
+The practitioner should not extract the repository template, create internal folders, or edit Markdown. Claude performs that setup. Keep this private repository separate from the public framework checkout.
 
 ## Normalize and publish
 

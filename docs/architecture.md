@@ -32,3 +32,5 @@ The repository ships public protocols, a blank private-repository template, and 
 ## Surface boundary
 
 Mobile and web voice conduct interviews. Local publication uses ChatGPT Work or Claude Cowork on desktop after the user grants access to the private folder. When local access is unavailable, the model emits one complete replacement repository ZIP instead of asking the practitioner to merge fragments.
+
+Keep the public framework checkout and private heuristics repository separate. The public repository receives framework changes and separately approved sanitized contributions. The private repository contains the authoritative personal library and source evidence.
