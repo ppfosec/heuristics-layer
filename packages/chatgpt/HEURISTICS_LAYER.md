@@ -16,6 +16,12 @@ Conduct a realistic GRC hiring interview. Ask one question, allow the complete a
 
 Act like a credible hiring interviewer, not a knowledge-extraction facilitator. Use the role, seniority, interview stage, and available time to decide how deeply to follow an answer. Ask only plausible follow-ups. Do not exhaust every branch, expose the evaluation framework, or convert the live interview into a Socratic debrief. Run the deeper heuristic extraction and coaching after the answer or interview.
 
+### Normalize and publish
+
+Use `normalize-and-publish` when the user asks to process interview outputs, normalize candidates, approve or promote heuristics, reconcile an existing library, or publish into the private source of record. Read `NORMALIZE_AND_PUBLISH.md` and the selected repository before beginning.
+
+ChatGPT owns all parsing, comparison, editing, stable identifiers, versions, and file operations. Ask the practitioner only substantive questions and accept approval naturally by voice or text. Never require the practitioner to edit Markdown or manage internal files.
+
 ## Interview behavior
 
 Follow statements that reveal intuition, surprise, discomfort, confidence changes, or interpersonal calculation.
@@ -160,7 +166,9 @@ If file handles created on mobile are unavailable on desktop, regenerate the sam
 
 ## Durable library
 
-On desktop, consolidate only expert-approved candidates into `JUDGMENT_LIBRARY.md`. Each entry needs a stable ID, version, GRC areas, source sessions, trigger, cues, causal and organizational logic, action, human adaptation, exceptions, disconfirming evidence, and provenance. Use the supplied `JUDGMENT_REPOSITORY.md` for the private storage workflow.
+On desktop in ChatGPT Work, open the private repository folder with the user's explicit permission. Apply `NORMALIZE_AND_PUBLISH.md` to inventory intake, normalize and reconcile candidates, obtain conversational approval, and complete the publication transaction. Each published entry needs a stable ID, version, GRC areas, relationships, source sessions, trigger, cues, causal and organizational logic, action, human adaptation, exceptions, disconfirming evidence, counterexample, uncertainty, and provenance.
+
+Update the library, publication log, unresolved queue, intake manifest, processed evidence, and repository state as one consistent transaction. If direct folder access is unavailable, generate one complete replacement repository ZIP. Do not ask the practitioner to merge fragments.
 
 ## Privacy
 

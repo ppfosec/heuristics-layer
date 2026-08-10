@@ -1,0 +1,4 @@
+interface:
+  display_name: "Heuristics Layer"
+  short_description: "Capture and publish private GRC judgment"
+  default_prompt: "Use $heuristics-layer to normalize and publish my pending GRC heuristic candidates."

@@ -2,9 +2,9 @@
 
 The fastest tested path is one ordinary ChatGPT chat. Set it up on desktop or web, open that same chat on your phone, and start talking.
 
-First, extract the downloaded `heuristics-layer-chatgpt-v0.2.0.zip` into a normal folder. Open `START_HERE.md` from that folder.
+First, extract the downloaded `heuristics-layer-chatgpt-v0.3.0.zip` into a normal folder. Open `START_HERE.md` from that folder.
 
-The download also contains `OPTIONAL_HEURISTICS_LAYER_SKILL.zip`. Leave it zipped for now. The uploaded-files workflow below is the tested voice path.
+The download also contains `OPTIONAL_HEURISTICS_LAYER_SKILL.zip` and `PRIVATE_HEURISTICS_REPOSITORY.zip`. Leave both zipped for now. The uploaded-files workflow below is the tested voice path.
 
 ## What you need
 
@@ -27,10 +27,10 @@ If the chat or voice control is missing, update the app and check workspace perm
 ## Fast path: one interview chat
 
 1. On desktop or web, start a new regular chat.
-2. Upload `PROJECT_INSTRUCTIONS.md` and `HEURISTICS_LAYER.md`.
+2. Upload `PROJECT_INSTRUCTIONS.md`, `HEURISTICS_LAYER.md`, and `NORMALIZE_AND_PUBLISH.md`.
 3. Say:
 
-   > Read both uploaded files. Treat `PROJECT_INSTRUCTIONS.md` as the operating instructions for this chat and use `HEURISTICS_LAYER.md` as the complete protocol. Confirm that Heuristics Layer is ready. Do not begin the interview yet.
+   > Read the three uploaded files. Treat `PROJECT_INSTRUCTIONS.md` as the operating instructions, use `HEURISTICS_LAYER.md` for interviews, and use `NORMALIZE_AND_PUBLISH.md` when publishing heuristics. Confirm that Heuristics Layer is ready. Do not begin the interview yet.
 
 4. Optionally upload a résumé, GRC role description, or sanitized background notes.
 5. Open that same chat in ChatGPT Mobile. Do not start a second chat.
@@ -47,7 +47,7 @@ Use this after the first interview if you want to start future interviews withou
 
 1. Create a cloud Project named `My GRC Judgment`.
 2. Copy `PROJECT_INSTRUCTIONS.md` into Project instructions.
-3. Upload `HEURISTICS_LAYER.md` and your current reviewed `JUDGMENT_LIBRARY.md` to Project sources. Use the included empty starter if no candidate has been approved yet.
+3. Upload `HEURISTICS_LAYER.md`, `NORMALIZE_AND_PUBLISH.md`, and your current published `JUDGMENT_LIBRARY.md` to Project sources. Use the included empty starter if no heuristic has been published yet.
 4. Start one new Project chat for each interview.
 5. Open the same Project chat on mobile and use voice as above.
 
@@ -65,6 +65,44 @@ Eligible ChatGPT workspaces can install `OPTIONAL_HEURISTICS_LAYER_SKILL.zip` as
 
 Skills are not documented as guaranteed inside voice, and personal Skill availability and installation can vary by workspace and surface. Do not delete the Project instructions or uploaded runtime after installing it. Until you verify the Skill in your own mobile voice session, treat it as an account-level text and desktop convenience, not the voice runtime.
 
+## Create the private repository once
+
+Do this in ChatGPT Work in the desktop app. Local folder access is not available from Work on web or mobile.
+
+Before relying on this path, confirm that `Work` appears in the desktop app and can open a local folder. Availability depends on the plan and workspace. If either capability is missing, use the complete-ZIP path below.
+
+1. Start a Work task and grant access only to the local parent folder where the private repository should live.
+2. Attach `PRIVATE_HEURISTICS_REPOSITORY.zip`.
+3. Say:
+
+   > Create my private Heuristics Layer repository inside the selected folder using this template. You own all internal file operations. Do not publish anything yet. Confirm the authoritative library path and repository state when setup is complete.
+
+The practitioner should not extract the repository template, create internal folders, or edit Markdown. ChatGPT performs that setup. Keep this private repository separate from the public framework checkout.
+
+## Normalize and publish
+
+After an interview produces the session packet and proposed changes:
+
+1. Open ChatGPT Work on desktop and grant access to the private repository folder.
+2. Download or regenerate the completed interview outputs in their source chat, then attach both files to Work. Do not assume that a regular chat transfers its files directly into a new Work task.
+3. Say:
+
+   > Register these interview outputs as pending intake. Normalize and reconcile the candidates against my current library. Ask me only the substantive questions needed to decide what represents my judgment. After I approve final wording, publish it and complete every repository update. Do not ask me to edit or move files.
+
+ChatGPT compares candidates, asks for conversational approval, and updates the library, publication log, unresolved queue, intake manifest, evidence archive, and repository state. If local folder writing is unavailable, it must return one complete replacement repository ZIP.
+
+## Complete-ZIP path without local Work
+
+Use this when Work or local folder access is unavailable:
+
+1. In an ordinary ChatGPT chat with file creation, upload your current complete private-repository ZIP. Use `PRIVATE_HEURISTICS_REPOSITORY.zip` for the first publication.
+2. Upload the completed interview outputs.
+3. Give the same normalize-and-publish request above.
+4. Review and approve meaning and wording in the conversation.
+5. Download the one complete replacement repository ZIP that ChatGPT creates.
+
+That replacement ZIP is the new source of record. ChatGPT must not ask you to extract it, merge individual files, or repair its internal structure.
+
 ## Recover the files on desktop
 
 ChatGPT's mobile file sandbox may create attachments that are downloadable on the phone but do not remain downloadable when the chat is opened on desktop. The first live acceptance run hit this limitation.
@@ -72,14 +110,14 @@ ChatGPT's mobile file sandbox may create attachments that are downloadable on th
 You have two options:
 
 1. Download both files on the phone and move them to your private storage.
-2. Reopen the completed chat on desktop in ChatGPT Work and say:
+2. Reopen the same completed chat on desktop and use the file-creation surface available to that chat. Say:
 
    > Regenerate the two completed Markdown outputs from this chat as downloadable desktop files. Create the session packet and the proposed judgment-library changes file. Do not re-interview me, add new candidates, or change the analysis.
 
-Regeneration is a file handoff, not a second evaluation pass. Compare the regenerated files with the visible chat before saving them.
+Regeneration is a file handoff, not a second evaluation pass. After recovery, attach the two files to a separate Work publication task if using the local-folder path.
 
-## Keep the heuristics somewhere durable
+## Keep one source of record
 
-Use `JUDGMENT_REPOSITORY.md` to create a private Google Drive folder or private local folder for session packets, proposals, and the approved `JUDGMENT_LIBRARY.md`. Do not use the public product repository for private interviews.
+The local private repository is authoritative. A cloud Project may contain a working copy of the published library for mobile interviews, but it is not automatically synchronized. After publication, ask ChatGPT to provide the current library as one file if the Project copy needs replacement. Do not use the public product repository for private interviews.
 
 ChatGPT voice transcripts may differ from the spoken exchange. Treat transcript excerpts as evidence to review, not a courtroom record.

@@ -116,15 +116,18 @@ Suggested filename:
 
 `JUDGMENT_LIBRARY.md`
 
-Store only expert-reviewed material. Each entry should include:
+Store only normalized material explicitly approved through the `normalize-and-publish` conversation. Each entry should include:
 
 ```markdown
-## [stable-id]: [title]
+## HL-H-0001: [title]
 
-- Status: approved | deprecated
-- Version:
+- Status: published | deprecated
+- Version: 1.0.0
 - GRC areas:
+- Relationships:
 - Learned from:
+- Approved by:
+- Approved on:
 - Last reviewed:
 
 ### Use when
@@ -144,8 +147,25 @@ Store only expert-reviewed material. Each entry should include:
 
 ### What would change this judgment
 
+### Counterexample
+
+### Uncertainty
+
 ### Provenance
 ```
+
+## Normalize-and-publish repository outputs
+
+A completed publication transaction updates all of these records:
+
+- `library/JUDGMENT_LIBRARY.md`;
+- `publications/PUBLICATION_LOG.md`;
+- `unresolved/UNRESOLVED_QUESTIONS.md`;
+- `intake/INTAKE_MANIFEST.md`;
+- processed evidence under dated `sessions/`, `proposals/`, or `archive/` locations;
+- `REPOSITORY_STATE.md`.
+
+The records must agree on stable identifiers, versions, dispositions, counts, provenance, and unresolved questions. If direct local writes are unavailable, return one complete replacement repository ZIP containing the resulting state. Never require the practitioner to merge isolated fragments.
 
 ## Job-interview feedback
 

@@ -24,7 +24,7 @@ Complete this record with a real paid account before making the v0.2 release fin
 - Session packet available on desktop: pass after regeneration in ChatGPT Work
 - No silent external or local write: pass; files remained in the ChatGPT sandbox until downloaded
 - One candidate reviewed by the practitioner: candidates accepted as useful for continued review; no heuristic automatically approved
-- Evidence reviewed: private `vendor_acceptance_heuristics_2026-08-09.zip`, containing a session packet and proposed library changes; private contents were not committed
+- Evidence reviewed: a private ChatGPT ZIP containing a session packet and proposed library changes; neither private filenames nor contents were committed
 - Notes and defects: mobile-created attachments were downloadable on mobile but their file handles were unavailable on desktop. Reopening the same completed chat in ChatGPT Work and asking it to regenerate the files produced desktop-downloadable copies. Output quality was substantively useful, but the first run did not explicitly preserve every promised evidence field or the eight-dimension qualitative evaluation. The runtime contract was tightened after review.
 
 ## Claude
@@ -41,7 +41,7 @@ Complete this record with a real paid account before making the v0.2 release fin
 - Two-file review bundle available on desktop: pass after regeneration in the Claude app
 - No silent external or local write: pass; private files were downloaded by the practitioner
 - One candidate reviewed by the practitioner: useful corpus material identified; final approval dispositions not recorded
-- Evidence reviewed: private `2026-08-09-ai-platform-tier-selection-session-packet.md` and `2026-08-09-ai-platform-tier-selection-proposed-library-changes.md`; private contents were not committed
+- Evidence reviewed: two private Claude Markdown outputs containing the session packet and proposed library changes; neither private filenames nor contents were committed
 - Notes and defects: Claude voice failed when asked to generate the downloadable files, so the practitioner repeated the file-generation request in the app. The resulting bundle followed the contract closely: three bounded candidates, deliberate exclusions, supporting evidence, uncertainty, counterexamples, reversal conditions, dispositions, a stakeholder map, a challenge log, and rationales across all eight qualitative dimensions. The recovery workflow now explicitly treats app regeneration as a file handoff and forbids a second interview or changed analysis.
 
 ## Release decision

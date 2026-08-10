@@ -53,3 +53,5 @@ The test fails if:
 - a candidate becomes approved without the practitioner.
 
 Voice or mobile file handoff failures are documented platform limitations, not product failures, when both artifacts can be regenerated unchanged from the same completed chat in a supported text or desktop surface.
+
+For v0.3 publication acceptance, use [V0.3_ACCEPTANCE.md](V0.3_ACCEPTANCE.md). Confirm Work or Cowork local-folder entitlement before relying on that path. When it is unavailable, test the complete-repository ZIP replacement path instead. Neither path may require the practitioner to edit or merge internal files.

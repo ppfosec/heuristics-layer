@@ -62,9 +62,9 @@ Write a short rationale for every assessment. Do not calculate a total score. Co
 
 ## 5. Keep approval human
 
-The LLM may recommend `approve`, `revise`, `probe`, `merge`, `split`, or `reject`. Only the expert may mark a heuristic `approved`.
+The LLM may recommend `publish`, `revise`, `probe`, `merge`, `split`, `reject`, or `supersede`. Only the expert may authorize publication.
 
-If the expert has not reviewed the candidate, use `candidate` or `needs-clarification`. Show the proposed library changes and ask for approval in a later review pass.
+If the expert has not reviewed the candidate, use `candidate` or `needs-clarification`. Route the proposal into the later `normalize-and-publish` mode. Do not make the practitioner edit or merge files.
 
 ## 6. Produce the output contract
 

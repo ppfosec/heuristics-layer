@@ -1,18 +1,19 @@
 ---
 name: heuristics-layer
-description: Conduct voice-first GRC judgment interviews, challenge and evaluate the resulting interpretations, and turn approved practitioner reasoning into reusable Markdown. Use for GRC decision debriefs, tacit-knowledge capture, stakeholder and incentive analysis, or GRC job-interview rehearsal.
+description: Conduct voice-first GRC judgment interviews and normalize and publish approved practitioner heuristics into a private authoritative library. Use for GRC decision debriefs, tacit-knowledge capture, stakeholder and incentive analysis, GRC job-interview rehearsal, processing interview outputs, reconciling candidate heuristics, or updating a private judgment library.
 ---
 
 # Heuristics Layer
 
-Conduct a natural GRC interview and then perform an LLM-led editorial pass. Optimize for the practitioner's decision habits, stakeholder reading, incentive analysis, trade-offs, uncertainty, and communication choices. Treat control and framework knowledge as case context rather than the main extraction target.
+Conduct a natural GRC interview, perform an LLM-led editorial pass, and publish normalized practitioner-approved heuristics when requested. Optimize for the practitioner's decision habits, stakeholder reading, incentive analysis, trade-offs, uncertainty, and communication choices. Treat control and framework knowledge as case context rather than the main extraction target.
 
 ## Choose a mode
 
 - Use `judgment-capture` for a real or sanitized GRC decision, disagreement, exception, escalation, or failure.
 - Use `job-rehearsal` for a realistic GRC hiring interview. Do not coach during an answer unless the user pauses the rehearsal. Ask only follow-ups that fit the role, interview stage, and available time. Reserve deep extraction for after the answer or interview.
+- Use `normalize-and-publish` to process pending interview outputs, reconcile them with the authoritative library, obtain conversational approval, and complete the publication transaction without requiring the practitioner to edit files.
 
-If the user does not choose, ask which mode they want and what decision or role should anchor the interview.
+If the request clearly concerns an interview, choose the relevant interview mode. If it concerns candidates, intake, approval, promotion, normalization, or the library, choose `normalize-and-publish`. Ask only when the intent is genuinely ambiguous.
 
 ## Load the protocol
 
@@ -27,6 +28,15 @@ When the user says `close and process`, also read:
 - `references/output-contract.md`
 
 When the user asks where to save outputs, how to maintain the private library, or how to merge approved candidates, read `references/judgment-repository.md`. Do not require this reference to begin or complete an interview.
+
+For `normalize-and-publish`, read both:
+
+- `references/normalize-and-publish.md`
+- `references/judgment-repository.md`
+
+If the practitioner asks to share an approved heuristic publicly, also read `references/publish-publicly.md`. Treat it as a second approval and publication transaction, never as an automatic consequence of private publication.
+
+If the private repository does not exist, use `assets/private-heuristics-repository/` as the source structure.
 
 ## Run the interview
 
@@ -51,6 +61,14 @@ Never approve inferred knowledge automatically. Recommend a disposition and leav
 Every candidate must explicitly include supporting excerpts, uncertainty, a counterexample, exceptions or reversal conditions, and a recommended disposition. Evaluate all eight qualitative dimensions with short rationales and no total score.
 
 If file creation is available in the chat, create two downloadable Markdown files: the session packet and proposed judgment-library changes. Otherwise, provide two complete copyable Markdown blocks. If voice file creation fails, regenerate the same two files from the completed chat in the app or text interface without re-interviewing or changing the analysis. Do not write into a local folder, repository, Project file area, Drive, or another destination unless the user explicitly chooses that destination. Ask whether the user wants to review candidates now or return later on desktop.
+
+## Normalize and publish
+
+Run this mode on a desktop surface that can access the private repository folder. Inventory pending intake, compare candidates with the existing library, normalize and challenge them, and ask only the substantive questions needed for publication.
+
+Never ask the practitioner to edit Markdown, compare files, assign identifiers, update versions, or move evidence. After explicit conversational approval, update the library, publication log, unresolved queue, intake manifest, processed evidence, and repository state as one consistent transaction.
+
+If the surface cannot write the selected folder, create one complete replacement repository ZIP. Do not return a collection of snippets for the practitioner to assemble.
 
 ## Protect private material
 

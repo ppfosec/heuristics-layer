@@ -1,17 +1,26 @@
 # Private judgment repository
 
-Heuristics Layer produces three different kinds of material. Keep them separate:
+Heuristics Layer produces three different kinds of material. ChatGPT or Claude keeps them separate:
 
 1. **Session packets** preserve what happened, what the model inferred, and how the candidates were challenged.
 2. **Proposed library changes** isolate material waiting for practitioner review.
 3. **The judgment library** contains only practitioner-approved heuristics.
 
-## Recommended layout
+## Application-owned layout
 
 ```text
 Heuristics Layer/
+  00_START_HERE.md
+  NORMALIZE_AND_PUBLISH.md
+  REPOSITORY_STATE.md
+  intake/
+    INTAKE_MANIFEST.md
   library/
     JUDGMENT_LIBRARY.md
+  publications/
+    PUBLICATION_LOG.md
+  unresolved/
+    UNRESOLVED_QUESTIONS.md
   sessions/
     2026/
       2026-08-09-vendor-acceptance-session-packet.md
@@ -21,21 +30,21 @@ Heuristics Layer/
   archive/
 ```
 
-This is a private knowledge folder, not necessarily a Git repository. A private Google Drive folder is convenient across devices. A local encrypted folder may fit stricter data-handling requirements. Choose one source of record. Two almost-current copies of `JUDGMENT_LIBRARY.md` are how the institutional-memory project becomes another stale spreadsheet.
+This is a private knowledge folder, not necessarily a Git repository. ChatGPT Work or Claude Cowork can operate it after the user grants access to that folder on desktop. The practitioner interacts in the application and approves substantive judgment. The model owns the file operations.
 
-## What stays in ChatGPT or Claude
+## Surface boundary
 
-Keep the runtime instructions and a working copy of `JUDGMENT_LIBRARY.md` in the cloud Project when the account and workspace are approved for the material. Keep raw transcripts in the source chat unless there is a deliberate reason to export them.
+Mobile and web voice can conduct the interview and create the two-file review bundle. Local publication requires a desktop surface with permission to read and write the private repository. If local access is unavailable, the model creates one complete replacement repository ZIP.
 
-Project knowledge does not automatically turn a Drive file or local file into a synchronized database. After approving changes, replace the Project's working library with the new source-of-record copy.
+Project knowledge does not automatically synchronize a local folder. Treat the private repository as authoritative and replace any Project working copy after publication.
 
-## After every interview
+## Normalize and publish
 
-1. Recover the session packet and proposed-changes file on the device where you curate the library.
-2. Save both files in the private repository.
-3. Review every candidate against its excerpts, counterexample, uncertainty, and reversal conditions.
-4. Approve, revise, merge, split, probe, or reject it.
-5. Start with the supplied empty `JUDGMENT_LIBRARY.md` and merge only approved wording into it.
-6. Replace the older Project knowledge copy with the reviewed library.
+1. The model inventories pending interview outputs.
+2. The model normalizes, reconciles, and challenges candidates against the existing library.
+3. The model asks focused substantive questions in the application.
+4. The practitioner approves, revises, merges, splits, probes, rejects, or supersedes through conversation.
+5. The model completes the publication transaction defined in `NORMALIZE_AND_PUBLISH.md`.
+6. The model reports the updated library version and remaining unresolved questions.
 
-Do not let the model silently promote proposals. Do not place private interviews or the judgment library in the public Heuristics Layer repository.
+The practitioner never edits Markdown or moves internal files. The model never publishes without explicit conversational approval. Do not place private interviews or the judgment library in the public Heuristics Layer repository.
